@@ -1,0 +1,119 @@
+\chapter{Gestion des Risques}
+
+\section{Identification et Priorisation}
+
+Conformément au Chapitre 9 du cours (Les Risques), nous avons identifié, priorisé et défini des actions de prévention pour les risques de ce projet. La gestion des risques comprend 4 étapes : \textbf{identifier}, \textbf{prioriser}, \textbf{prévenir} et \textbf{suivre}.
+
+\subsection{Risques Techniques}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{C{0.7cm} X C{1.8cm} C{1.5cm} C{1.8cm}}
+\toprule
+\textbf{\color{primarycolor}\#} &
+\textbf{\color{primarycolor}Risque} &
+\textbf{\color{primarycolor}Probabilité} &
+\textbf{\color{primarycolor}Impact} &
+\textbf{\color{primarycolor}Criticité} \\
+\midrule
+R1 & Perte de données Kafka (le broker crash) & Moyenne & Élevé & Critique \\
+\addlinespace[0.1cm]
+R2 & Latence du traitement (topologies trop lentes) & Faible & Moyen & Modéré \\
+\addlinespace[0.1cm]
+R3 & Incompatibilité des versions Docker/Kafka/Flink & Moyenne & Élevé & Critique \\
+\addlinespace[0.1cm]
+R4 & Mémoire insuffisante (Docker consomme trop de RAM) & Moyenne & Moyen & Modéré \\
+\addlinespace[0.1cm]
+R5 & Incohérence des données (Replay $\neq$ Temps réel) & Faible & Élevé & Modéré \\
+\bottomrule
+\end{tabularx}
+\caption{Matrice des risques techniques}
+\end{table}
+
+\subsection{Risques de Gestion de Projet}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{C{0.7cm} X C{1.8cm} C{1.5cm} C{1.8cm}}
+\toprule
+\textbf{\color{primarycolor}\#} &
+\textbf{\color{primarycolor}Risque} &
+\textbf{\color{primarycolor}Probabilité} &
+\textbf{\color{primarycolor}Impact} &
+\textbf{\color{primarycolor}Criticité} \\
+\midrule
+R6 & Retard de livraison (complexité sous-estimée) & Élevée & Élevé & Critique \\
+\addlinespace[0.1cm]
+R7 & Mauvaise répartition des tâches & Moyenne & Moyen & Modéré \\
+\addlinespace[0.1cm]
+R8 & Manque de compétences (technologies nouvelles) & Élevée & Moyen & Modéré \\
+\addlinespace[0.1cm]
+R9 & Communication défaillante MOA/MOE & Faible & Moyen & Faible \\
+\bottomrule
+\end{tabularx}
+\caption{Matrice des risques de gestion de projet}
+\end{table}
+
+\section{Plans de Mitigation}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{C{0.7cm} X X}
+\toprule
+\textbf{\color{primarycolor}\#} &
+\textbf{\color{primarycolor}Action Préventive} &
+\textbf{\color{primarycolor}Action Corrective} \\
+\midrule
+R1 & Configuration de la rétention (7 jours) et réplication & Replay depuis le dernier offset connu \\
+\addlinespace[0.1cm]
+R2 & Partitionnement des topics (3 partitions) & Augmenter les task slots Flink \\
+\addlinespace[0.1cm]
+R3 & Figer les versions dans docker-compose & Tester avec des versions antérieures \\
+\addlinespace[0.1cm]
+R6 & Estimation par Planning Poker & Réduire le périmètre (prioriser) \\
+\addlinespace[0.1cm]
+R8 & Auto-formation et prototypage en Sprint 0 & Pair programming et support mutuel \\
+\bottomrule
+\end{tabularx}
+\caption{Plans de mitigation des risques critiques}
+\end{table}
+
+\section{Le Cône d'Incertitude}
+
+Référence au Chapitre 8 du cours (Estimation de charge). Au début du projet, l'incertitude liée à la technologie Kafka était très forte (\textbf{facteur $\times$4}). Au fur et à mesure des Sprints, la maîtrise technique s'est améliorée :
+
+\begin{itemize}
+    \item \textbf{Début du projet} : incertitude $\times$4 (technologies inconnues Kafka/Flink)~;
+    \item \textbf{Après Sprint 1} : incertitude $\times$2 (l'infrastructure fonctionne)~;
+    \item \textbf{Après Sprint 2} : incertitude $\times$1 (les topologies sont validées).
+\end{itemize}
+
+\section{Suivi des Risques par Sprint}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{3cm} C{3cm} C{3cm} C{3cm}}
+\toprule
+\textbf{\color{primarycolor}Risque} &
+\textbf{\color{primarycolor}Sprint 1} &
+\textbf{\color{primarycolor}Sprint 2} &
+\textbf{\color{primarycolor}Sprint 3} \\
+\midrule
+R1 Perte données & Non traité & Rétention configurée & Validé \\
+\addlinespace[0.1cm]
+R2 Latence & Pas de problème & Acceptable & OK \\
+\addlinespace[0.1cm]
+R3 Versions & Résolu & -- & -- \\
+\addlinespace[0.1cm]
+R4 Mémoire & Docker lourd & Optimisé & OK \\
+\addlinespace[0.1cm]
+R6 Retard & Sprint 1 long & Rattrapage & Livré \\
+\bottomrule
+\end{tabularx}
+\caption{Suivi de l'évolution des risques par sprint}
+\end{table}
+
+\begin{warningbox}
+    \textbf{\textcolor{red!70!black}{\large Risque Technique Majeur}}\\[0.3cm]
+    Les technologies Big Data/Streaming sont complexes à configurer. L'utilisation de \texttt{docker-compose} a permis d'encapsuler cette complexité et d'atténuer le risque de problèmes d'environnement. En figeant les versions (\texttt{cp-kafka:7.3.0}, \texttt{flink:1.17}), nous avons éliminé le risque d'incompatibilité R3.
+\end{warningbox}

@@ -31,7 +31,7 @@
     pdftitle={\docTitle},
     pdfauthor={\docAuthor},
     pdfsubject={\docModule},
-    pdfkeywords={ENSA, Projet, Template}
+    pdfkeywords={Architecture Kappa, Kafka, Traitement de flux, E-commerce, Gestion de projet}
 }
 
 % ============================================================================
@@ -56,6 +56,16 @@
 \tableofcontents
 \newpage
 
+% ── List of Figures ────────────────────────────────────────────────────────
+\renewcommand{\listfigurename}{Liste des figures}
+\listoffigures
+\newpage
+
+% ── List of Tables ─────────────────────────────────────────────────────────
+\renewcommand{\listtablename}{Liste des tableaux}
+\listoftables
+\newpage
+
 % ── Main Content (arabic page numbers) ─────────────────────────────────────
 \pagenumbering{arabic}
 \setcounter{page}{1}
@@ -67,19 +77,45 @@
 \input{chapters/chapter-02-acteurs}
 \input{chapters/chapter-03-planification}
 \input{chapters/chapter-04-implementation}
-\input{chapters/chapter-05-methodologie}
-\input{chapters/chapter-06-risques}
+\input{chapters/chapter-05-retention-replay}
+\input{chapters/chapter-06-methodologie}
+\input{chapters/chapter-07-risques}
 
 % ── Conclusion ─────────────────────────────────────────────────────────────
 \chapter*{Conclusion et Perspectives}
 \addcontentsline{toc}{chapter}{Conclusion et Perspectives}
 
-Le projet a réussi à unifier le traitement événementiel grâce à l'architecture Kappa. Le site e-commerce fictif est désormais capable de traiter et d'analyser le comportement client en temps réel sans latence et avec une parfaite cohérence grâce au mécanisme de rétention et de replay.
+\section*{Bilan Technique}
 
-\textbf{Perspectives :}
-La prochaine étape serait d'intégrer du \textbf{Machine Learning en temps réel} sur ce flux Kappa. Par exemple : prédire l'achat suivant d'un client pendant qu'il navigue encore sur la page d'accueil ou utiliser l'IA pour ajuster les prix dynamiquement.
+Ce projet a démontré avec succès la viabilité de l'\textbf{architecture Kappa} comme alternative à l'architecture Lambda pour le traitement événementiel en e-commerce. Les cinq composants développés --- le simulateur, les topologies de filtrage, d'agrégation et de détection d'abandon, ainsi que le test de replay --- fonctionnent de manière cohérente et valident les principes fondamentaux de cette architecture.
 
-\vspace{2cm}
+Le mécanisme de \textbf{replay}, pierre angulaire de Kappa, a prouvé sa fiabilité : les résultats obtenus en rejouant l'intégralité du journal d'événements sont \textbf{strictement identiques} à ceux calculés en temps réel, confirmant la parfaite cohérence du système.
+
+\section*{Bilan Gestion de Projet}
+
+Sur le plan organisationnel, l'approche \textbf{Agile (Scrum + Kanban)} s'est révélée particulièrement adaptée à un projet comportant une forte incertitude technique. Le découpage en 4 sprints, la gestion rigoureuse des 9 risques identifiés et l'utilisation du Planning Poker pour l'estimation des charges ont permis de livrer le projet dans les délais avec une vélocité de 100\%.
+
+\section*{Leçons Apprises}
+
+\begin{itemize}
+    \item La \textbf{conteneurisation} (Docker) est indispensable pour encapsuler la complexité des architectures distribuées~;
+    \item Le \textbf{Planning Poker} permet d'obtenir des estimations réalistes grâce au consensus d'équipe~;
+    \item La \textbf{validation progressive} (recette par sprint) réduit considérablement les risques de non-conformité en fin de projet~;
+    \item La \textbf{rétention configurée par topic} permet d'adapter le coût de stockage au besoin métier réel.
+\end{itemize}
+
+\section*{Perspectives}
+
+Plusieurs axes d'évolution sont envisageables pour enrichir cette architecture :
+
+\begin{enumerate}
+    \item \textbf{Machine Learning en temps réel} : intégrer des modèles prédictifs directement dans le flux Kappa pour prédire l'achat suivant d'un client pendant sa navigation~;
+    \item \textbf{Dashboard temps réel} : développer une interface graphique (Grafana, Kibana) pour visualiser les statistiques et alertes en direct~;
+    \item \textbf{Scaling horizontal} : déployer un cluster Kafka multi-brokers avec réplication pour garantir la haute disponibilité en production~;
+    \item \textbf{Tarification dynamique} : utiliser l'IA pour ajuster les prix en fonction du comportement client observé en temps réel.
+\end{enumerate}
+
+\vspace{1.5cm}
 \begin{flushright}
 \textit{\docAuthor}\\
 \textit{ENSAH -- \docYear}

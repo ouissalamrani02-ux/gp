@@ -1,0 +1,35 @@
+\babel@toc {french}{}\relax 
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces Comparaison des architectures Lambda et Kappa}}{1}{table.caption.2}%
+\contentsline {table}{\numberline {1.2}{\ignorespaces Stack technologique du projet}}{2}{table.caption.3}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Fiche de la Maîtrise d'Ouvrage}}{3}{table.caption.4}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Fiche de la Maîtrise d'Œuvre}}{4}{table.caption.5}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Fiche du Chef de Projet}}{4}{table.caption.6}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Matrice RACI --- \textit {R = Responsable, A = Approbateur, C = Consulté, I = Informé}}}{4}{table.caption.7}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces Outils de communication du projet}}{5}{table.caption.8}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Sprint 0 --- Cadrage du projet}}{6}{table.caption.9}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Sprint 1 --- Mise en place de l'infrastructure}}{6}{table.caption.10}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Sprint 2 --- Développement du simulateur et des topologies}}{7}{table.caption.11}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Sprint 3 --- Validation et documentation}}{7}{table.caption.12}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Backlog des User Stories}}{8}{table.caption.13}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Résultats du Planning Poker --- estimation en story points}}{8}{table.caption.14}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Vélocité de l'équipe par sprint}}{9}{table.caption.15}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Les 5 composants de l'architecture Kappa}}{10}{table.caption.16}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Catalogue de produits du simulateur}}{12}{table.caption.17}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Métriques calculées par la topologie d'agrégation}}{13}{table.caption.18}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Configuration des topics Kafka}}{16}{table.caption.19}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Politique de rétention par topic}}{17}{table.caption.20}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Scénarios de replay en environnement professionnel}}{20}{table.caption.21}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Limites de la rétention et solutions}}{20}{table.caption.22}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Comparaison Cascade vs Agile pour notre projet}}{21}{table.caption.23}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Outils Agile et leur correspondance avec le cours}}{22}{table.caption.24}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces Matrice des risques techniques}}{23}{table.caption.25}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces Matrice des risques de gestion de projet}}{23}{table.caption.26}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces Plans de mitigation des risques critiques}}{24}{table.caption.27}%
+\contentsline {table}{\numberline {7.4}{\ignorespaces Suivi de l'évolution des risques par sprint}}{24}{table.caption.28}%

@@ -1,10 +1,63 @@
 \babel@toc {french}{}\relax 
 \contentsline {chapter}{Résumé}{i}{chapter*.1}%
-\contentsline {chapter}{\numberline {1}Titre du Chapitre}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Première Section}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Sous-section}{1}{subsection.1.1.1}%
-\contentsline {section}{\numberline {1.2}Deuxième Section}{1}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Exemple de Tableau}{1}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Exemple de Figure Encadrée}{2}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Exemple de Boîtes Stylisées}{2}{section.1.5}%
-\contentsline {chapter}{Conclusion}{3}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Introduction : Architecture Kappa}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contexte et Objectifs}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Architecture Lambda vs Kappa}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Les Trois Piliers de l'Architecture Kappa}{2}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Pilier 1 : Le Log d'Événements (Kafka)}{2}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Pilier 2 : Le Traitement de Flux (Topologies)}{2}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Pilier 3 : Le Replay pour la Cohérence}{2}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}Pourquoi Kappa pour le E-commerce ?}{2}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Technologies Utilisées}{2}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Acteurs et Rôles}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Gouvernance du Projet}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Maîtrise d'Ouvrage (MOA) --- Le Client}{3}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Maîtrise d'Œuvre (MOE) --- L'Équipe Technique}{3}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Chef de Projet}{4}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Matrice RACI}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Communication entre Acteurs}{4}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Réunions}{5}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Outils de Communication}{5}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Planification et Estimation}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Découpage du Projet en Sprints}{6}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Sprint 0 : Cadrage (01/04 --- 02/04/2026)}{6}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Sprint 1 : Infrastructure (06/04 --- 08/04/2026)}{6}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Sprint 2 : Simulateur et Topologies (09/04 --- 13/04/2026)}{7}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Sprint 3 : Validation et Rapport (14/04 --- 16/04/2026)}{7}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Le Diagramme de Gantt}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}User Stories}{8}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Estimation des Charges (Planning Poker)}{8}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Vélocité de l'Équipe}{9}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Implémentation Technique}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Vue d'Ensemble des Composants}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Infrastructure et Ingestion}{10}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Structure d'un Événement}{11}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Catalogue de Produits}{11}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Topologies de Traitement}{12}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Topologie de Filtrage}{12}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Topologie d'Agrégation}{13}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Topologie de Détection d'Abandon}{14}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Topics Kafka et Rétention}{15}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Rétention et Replay}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Pourquoi la Rétention est Essentielle}{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Le Replay --- Alternative au Batch Layer}{17}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Pourquoi Rejouer ?}{17}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Fonctionnement Technique}{18}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Validation de Cohérence}{18}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Le Test Fondamental}{18}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Étapes du Test (\texttt {config/test\_replay.py})}{18}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Scénarios de Replay en Entreprise}{19}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Limites et Bonnes Pratiques}{20}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Méthodologie et Cycle de Vie}{21}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Choix de la Méthodologie}{21}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Approche Agile (Scrum)}{21}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Utilisation de Taiga (Kanban)}{22}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Outils Agile Utilisés}{22}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Gestion des Risques}{23}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Identification et Priorisation}{23}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Risques Techniques}{23}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Risques de Gestion de Projet}{23}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Plans de Mitigation}{24}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Le Cône d'Incertitude}{24}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Suivi des Risques par Sprint}{24}{section.7.4}%
+\contentsline {chapter}{Conclusion et Perspectives}{26}{chapter*.29}%
