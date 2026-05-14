@@ -405,34 +405,69 @@
 % ════════════════════════════════════════════════════════════════════════════
 \section{Méthodologie Agile}
 
-\begin{frame}{Scrum \& Kanban}
+\begin{frame}{Pourquoi Agile~? --- Cascade vs Scrum}
   \begin{columns}[T]
     \begin{column}{0.48\textwidth}
-      \begin{block}{\faSync\ Scrum}
+      \begin{alertblock}{\faTimesCircle\ Cascade (Waterfall)}
         \begin{itemize}
-          \item Itérations courtes (Sprints)
-          \item Livraison incrémentale
-          \item Feedback continu de la MOA
-          \item Sprint Review en fin de sprint
-          \item Rétrospective d'équipe
+          \item Besoins figés au début
+          \item Livraison unique à la fin
+          \item Feedback tardif
+          \item Risques détectés tard
+          \item Documentation lourde
         \end{itemize}
-      \end{block}
+      \end{alertblock}
     \end{column}
     \begin{column}{0.48\textwidth}
-      \begin{block}{\faColumns\ Kanban (Taiga)}
+      \begin{exampleblock}{\faCheckCircle\ Agile / Scrum}
         \begin{itemize}
-          \item Visualisation du flux de travail
-          \item Colonnes : NEW $\to$ READY $\to$ IN PROGRESS $\to$ DONE
-          \item Limite du travail en cours
-          \item Amélioration continue
+          \item Besoins \textbf{adaptatifs}
+          \item Livraison \textbf{incrémentale}
+          \item Feedback \textbf{continu} (MOA)
+          \item Risques détectés \textbf{tôt}
+          \item Documentation légère et utile
         \end{itemize}
-      \end{block}
+      \end{exampleblock}
     \end{column}
   \end{columns}
 
-  \vspace{0.4cm}
-  \centering
-  \includegraphics[width=0.85\textwidth]{../screenshots/taiga.png}
+  \vspace{0.5cm}
+  \begin{block}{}
+    \centering\small
+    Notre projet comporte une \textbf{forte incertitude technique} (Kafka, Flink) $\Rightarrow$ l'approche \textbf{Agile} permet d'avancer par itérations et de valider progressivement.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Scrum + Kanban sur Taiga}
+  \begin{columns}[T]
+    \begin{column}{0.35\textwidth}
+      \begin{block}{\faSync\ Scrum}
+        \scriptsize
+        \begin{itemize}
+          \item Sprints de 3--5 jours
+          \item Sprint Review à chaque fin
+          \item Rétrospective d'équipe
+        \end{itemize}
+      \end{block}
+      \vspace{0.2cm}
+      \begin{block}{\faColumns\ Kanban}
+        \scriptsize
+        \begin{itemize}
+          \item 5 colonnes de suivi
+          \item Visualisation du flux
+          \item Détection des blocages
+        \end{itemize}
+      \end{block}
+      \vspace{0.2cm}
+      \centering\scriptsize
+      \textbf{NEW} $\to$ \textbf{READY} $\to$ \textbf{IN PROGRESS}\\ $\to$ \textbf{READY FOR TEST} $\to$ \textbf{DONE}
+    \end{column}
+    \begin{column}{0.62\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{../screenshots/taiga.png}\\[4pt]
+      {\scriptsize\textit{Tableau Kanban du projet sur Taiga}}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ════════════════════════════════════════════════════════════════════════════

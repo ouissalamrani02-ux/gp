@@ -1,0 +1,9 @@
+\babel@toc {french}{}\relax 
+\beamer@sectionintoc {1}{Introduction et Contexte}{3}{0}{1}
+\beamer@sectionintoc {2}{Architecture Kappa}{4}{0}{2}
+\beamer@sectionintoc {3}{Acteurs et Rôles}{8}{0}{3}
+\beamer@sectionintoc {4}{Planification et Estimation}{10}{0}{4}
+\beamer@sectionintoc {5}{Méthodologie Agile}{13}{0}{5}
+\beamer@sectionintoc {6}{Implémentation Technique}{15}{0}{6}
+\beamer@sectionintoc {7}{Gestion des Risques}{20}{0}{7}
+\beamer@sectionintoc {8}{Conclusion et Perspectives}{22}{0}{8}
