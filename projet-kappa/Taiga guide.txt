@@ -1,0 +1,84 @@
+1. Installer Docker Desktop (inclut Docker + Compose)
+
+Télécharger ici :
+https://www.docker.com/products/docker-desktop/
+
+Étapes :
+Télécharge et lance l’installeur
+Coche :
+Use WSL 2 instead of Hyper-V (recommandé)
+Termine l’installation
+Redémarre ton PC
+
+
+2. Vérifier l’installation
+
+Ouvre PowerShell ou CMD :
+
+docker --version
+docker compose version
+
+Si ça affiche des versions → OK
+
+
+
+3. Installer WSL (si pas déjà fait)
+
+Dans PowerShell (admin) :
+
+wsl --install
+
+Puis redémarre
+
+
+4. Installer Taiga
+Étape 1 : installer Git (si pas déjà fait)
+
+https://git-scm.com/download/win
+
+Étape 2 : cloner Taiga
+
+Dans PowerShell :
+
+git clone https://github.com/taigaio/taiga-docker.git
+cd taiga-docker
+
+
+#######################################################
+
+A- Démarrer Docker Desktop
+Clique sur Start
+Cherche Docker Desktop
+Lance-le
+
+Attends jusqu’à voir :
+“Docker is running”
+
+B- Vérifier dans PowerShell
+
+Tape :
+
+docker info
+
+Si ça fonctionne → Docker OK
+
+#######################################################
+
+
+
+
+Étape 3 : lancer Taiga
+
+docker compose up -d
+
+Attends quelques minutes (premier lancement = long)
+
+5. Accéder à Taiga
+
+Dans ton navigateur :
+
+http://localhost:9000
+
+
+6- creer des utilisateurs (membres)
+docker compose exec taiga-back python manage.py createsuperuser
