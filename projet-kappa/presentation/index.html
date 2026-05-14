@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture Kappa — Présentation</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/black.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--kappa-blue:#4FC3F7;--kappa-green:#66BB6A;--kappa-orange:#FFA726;--kappa-red:#EF5350;--kappa-purple:#AB47BC;--bg-dark:#0a0e1a;--bg-card:rgba(255,255,255,0.05)}
+.reveal{font-family:'Inter',sans-serif;font-size:28px}
+.reveal h1,.reveal h2,.reveal h3{font-family:'Inter',sans-serif;font-weight:700;text-transform:none;letter-spacing:-0.02em}
+.reveal h1{font-size:2.2em;background:linear-gradient(135deg,var(--kappa-blue),var(--kappa-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.reveal h2{font-size:1.6em;color:var(--kappa-blue)}
+.reveal h3{font-size:1.2em;color:var(--kappa-green)}
+.reveal .slide-number{font-size:14px;color:var(--kappa-blue)}
+.reveal section{text-align:left}
+.reveal .center-slide{text-align:center}
+.subtitle{color:#aaa;font-size:0.7em;font-weight:300;margin-top:0.5em}
+.badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:0.55em;font-weight:600;margin:4px;background:rgba(79,195,247,0.15);color:var(--kappa-blue);border:1px solid rgba(79,195,247,0.3)}
+.badge.green{background:rgba(102,187,106,0.15);color:var(--kappa-green);border-color:rgba(102,187,106,0.3)}
+.badge.orange{background:rgba(255,167,38,0.15);color:var(--kappa-orange);border-color:rgba(255,167,38,0.3)}
+.badge.red{background:rgba(239,83,80,0.15);color:var(--kappa-red);border-color:rgba(239,83,80,0.3)}
+.badge.purple{background:rgba(171,71,188,0.15);color:var(--kappa-purple);border-color:rgba(171,71,188,0.3)}
+.card{background:var(--bg-card);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px 24px;margin:12px 0}
+.card h3{margin-top:0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.reveal table{font-size:0.65em;width:100%;border-collapse:collapse;margin:10px 0}
+.reveal table th{background:rgba(79,195,247,0.15);color:var(--kappa-blue);padding:8px 12px;text-align:left;border-bottom:2px solid rgba(79,195,247,0.3)}
+.reveal table td{padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.reveal img.screenshot{border-radius:10px;border:2px solid rgba(79,195,247,0.25);box-shadow:0 8px 32px rgba(0,0,0,0.4);max-height:420px;width:auto}
+.pipeline{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:0.7em;margin:16px 0}
+.pipeline .step{background:var(--bg-card);border:1px solid rgba(255,255,255,0.1);padding:10px 16px;border-radius:10px;text-align:center;min-width:100px}
+.pipeline .arrow{color:var(--kappa-blue);font-size:1.4em}
+.big-emoji{font-size:2.5em;margin-bottom:10px}
+.highlight-box{background:linear-gradient(135deg,rgba(79,195,247,0.1),rgba(171,71,188,0.1));border:1px solid rgba(79,195,247,0.2);border-radius:12px;padding:18px 24px;margin:14px 0;text-align:center;font-size:0.85em}
+.reveal ul{font-size:0.85em;line-height:1.7}
+.reveal li{margin-bottom:4px}
+.team-member{text-align:center;padding:12px}
+.team-member .name{font-weight:700;font-size:1em;color:#fff;margin-top:8px}
+.team-member .role{font-size:0.7em;color:#aaa}
+.risk-high{color:var(--kappa-red)}
+.risk-med{color:var(--kappa-orange)}
+.risk-low{color:var(--kappa-green)}
+.section-divider{text-align:center !important}
+.section-divider h2{font-size:2em !important;background:linear-gradient(135deg,var(--kappa-blue),var(--kappa-green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-info{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:0.4em;color:#555}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ═══════════ SLIDE 1 : TITLE ═══════════ -->
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0a0e1a 0%, #1a1040 50%, #0a0e1a 100%)">
+<div class="big-emoji">🏗️</div>
+<h1>Architecture Kappa</h1>
+<p class="subtitle">Traitement Événementiel Unifié pour le E-commerce</p>
+<div style="margin:24px 0">
+<span class="badge">Apache Kafka</span>
+<span class="badge green">Python</span>
+<span class="badge orange">Docker</span>
+<span class="badge purple">Apache Flink</span>
+</div>
+<p style="font-size:0.55em;color:#888;margin-top:30px">
+<strong>Yazid TAHIRI ALAOUI</strong> · <strong>Souhayla ECH-CHARAY</strong> · <strong>Ouissal EL AMRANI</strong><br>
+Pr. Redouan ABAKOUY — ENSA Al Hoceima — 2025/2026
+</p>
+</section>
+
+<!-- ═══════════ SLIDE 2 : PLAN ═══════════ -->
+<section>
+<h2>📋 Plan de la Présentation</h2>
+<div class="grid-2">
+<div class="card"><h3>1️⃣ Introduction</h3><p style="font-size:0.7em">Contexte, problématique et objectifs</p></div>
+<div class="card"><h3>2️⃣ Architecture</h3><p style="font-size:0.7em">Kappa vs Lambda — choix technique</p></div>
+<div class="card"><h3>3️⃣ Acteurs & Rôles</h3><p style="font-size:0.7em">MOA, MOE, Chef de Projet</p></div>
+<div class="card"><h3>4️⃣ Planification</h3><p style="font-size:0.7em">Sprints, Gantt, Estimation</p></div>
+<div class="card"><h3>5️⃣ Implémentation</h3><p style="font-size:0.7em">Topologies et démo en direct</p></div>
+<div class="card"><h3>6️⃣ Risques & Conclusion</h3><p style="font-size:0.7em">Matrice des risques, perspectives</p></div>
+</div>
+</section>
+
+<!-- ═══════════ BLOC 1 : INTRODUCTION ═══════════ -->
+<section class="section-divider center-slide">
+<div class="big-emoji">📖</div>
+<h2>Bloc 1 — Introduction</h2>
+<p class="subtitle">Contexte et Problématique</p>
+</section>
+
+<section>
+<h2>Le Contexte</h2>
+<div class="card">
+<h3>🏪 Plateforme E-commerce Fictive</h3>
+<ul>
+<li>Des milliers de <strong>clics, vues, paniers, achats</strong> chaque seconde</li>
+<li>Besoin de traitement <strong>en temps réel</strong> (pas en batch toutes les heures)</li>
+<li>Le Marketing veut des <strong>alertes immédiates</strong> quand un client abandonne son panier</li>
+</ul>
+</div>
+<div class="highlight-box">
+<strong>Problématique :</strong> Comment traiter un flux continu d'événements avec un seul système unifié, tout en garantissant la cohérence des résultats ?
+</div>
+</section>
+
+<!-- ═══════════ BLOC 2 : ARCHITECTURE ═══════════ -->
+<section class="section-divider center-slide">
+<div class="big-emoji">📐</div>
+<h2>Bloc 2 — Architecture</h2>
+<p class="subtitle">Kappa vs Lambda</p>
+</section>
+
+<section>
+<h2>Lambda vs Kappa</h2>
+<div class="grid-2">
+<div class="card" style="border-color:rgba(239,83,80,0.3)">
+<h3 style="color:var(--kappa-red)">❌ Lambda (2011)</h3>
+<ul>
+<li><strong>2 couches</strong> : Batch + Speed</li>
+<li>Code dupliqué</li>
+<li>Résultats potentiellement incohérents</li>
+<li>Maintenance complexe</li>
+</ul>
+</div>
+<div class="card" style="border-color:rgba(102,187,106,0.3)">
+<h3 style="color:var(--kappa-green)">✅ Kappa (2014)</h3>
+<ul>
+<li><strong>1 seul flux</strong> continu</li>
+<li>Code unique</li>
+<li>Cohérence garantie par le Replay</li>
+<li>Simplicité opérationnelle</li>
+</ul>
+</div>
+</div>
+<div class="highlight-box">
+<strong>Jay Kreps (créateur de Kafka) :</strong> « Si le streaming est assez robuste, pourquoi avoir un batch layer ? »
+</div>
+</section>
+
+<section>
+<h2>Notre Pipeline Kappa</h2>
+<div class="pipeline">
+<div class="step">🏪<br><strong>Simulateur</strong><br><span style="font-size:0.8em;color:#aaa">simulateur.py</span></div>
+<div class="arrow">→</div>
+<div class="step" style="border-color:rgba(79,195,247,0.4)">📨<br><strong>Kafka</strong><br><span style="font-size:0.8em;color:#aaa">clics_ecommerce</span></div>
+<div class="arrow">→</div>
+<div class="step" style="border-color:rgba(102,187,106,0.4)">🔍<br><strong>Filtrage</strong><br><span style="font-size:0.8em;color:#aaa">Bots éliminés</span></div>
+<div class="arrow">→</div>
+<div class="step" style="border-color:rgba(79,195,247,0.4)">📨<br><strong>Kafka</strong><br><span style="font-size:0.8em;color:#aaa">clics_filtres</span></div>
+</div>
+<div class="pipeline">
+<div class="step" style="border-color:rgba(255,167,38,0.4)">📊<br><strong>Agrégation</strong><br><span style="font-size:0.8em;color:#aaa">Stats par produit</span></div>
+<div class="arrow" style="transform:rotate(180deg)">←</div>
+<div class="step" style="border-color:rgba(79,195,247,0.4)">📨 Kafka<br><span style="font-size:0.8em;color:#aaa">clics_filtres</span></div>
+<div class="arrow">→</div>
+<div class="step" style="border-color:rgba(239,83,80,0.4)">🚨<br><strong>Détection</strong><br><span style="font-size:0.8em;color:#aaa">Abandon panier</span></div>
+</div>
+</section>
+
+<!-- ═══════════ BLOC 3 : ACTEURS ═══════════ -->
+<section class="section-divider center-slide">
+<div class="big-emoji">👥</div>
+<h2>Bloc 3 — Acteurs et Rôles</h2>
+<p class="subtitle">Gouvernance du Projet</p>
+</section>
+
+<section>
+<h2>Les Parties Prenantes</h2>
+<div class="grid-3">
+<div class="card" style="text-align:center">
+<div style="font-size:2em">🏢</div>
+<h3>MOA</h3>
+<p style="font-size:0.65em;color:#aaa">Maîtrise d'Ouvrage</p>
+<p style="font-size:0.7em">Équipe <strong>Marketing</strong><br>« Que faut-il faire ? »</p>
+</div>
+<div class="card" style="text-align:center">
+<div style="font-size:2em">📋</div>
+<h3>Chef de Projet</h3>
+<p style="font-size:0.65em;color:#aaa">Coordinateur</p>
+<p style="font-size:0.7em">Planifie, gère les <strong>risques</strong> et assure le lien</p>
+</div>
+<div class="card" style="text-align:center">
+<div style="font-size:2em">💻</div>
+<h3>MOE</h3>
+<p style="font-size:0.65em;color:#aaa">Maîtrise d'Œuvre</p>
+<p style="font-size:0.7em">Équipe <strong>Technique</strong><br>« Comment le faire ? »</p>
+</div>
+</div>
+<div class="grid-3" style="margin-top:12px">
+<div class="team-member"><div class="name">Yazid TAHIRI ALAOUI</div><div class="role">MOE — Développeur</div></div>
+<div class="team-member"><div class="name">Souhayla ECH-CHARAY</div><div class="role">Chef de Projet</div></div>
+<div class="team-member"><div class="name">Ouissal EL AMRANI</div><div class="role">MOA — Validation</div></div>
+</div>
+</section>
+
+<!-- ═══════════ BLOC 4 : PLANIFICATION ═══════════ -->
+<section class="section-divider center-slide">
+<div class="big-emoji">📅</div>
+<h2>Bloc 4 — Planification</h2>
+<p class="subtitle">Sprints, Gantt, Estimation</p>
+</section>
+
+<section>
+<h2>Découpage en Sprints</h2>
+<table>
+<thead><tr><th>Sprint</th><th>Objectif</th><th>Livrable</th><th>Points</th><th>Statut</th></tr></thead>
+<tbody>
+<tr><td><span class="badge">Sprint 0</span></td><td>Cadrage & Choix architecture</td><td>Document de décision</td><td>3</td><td>✅</td></tr>
+<tr><td><span class="badge green">Sprint 1</span></td><td>Infrastructure Docker</td><td>Kafka + Flink opérationnels</td><td>8</td><td>✅</td></tr>
+<tr><td><span class="badge orange">Sprint 2</span></td><td>Simulateur + 3 Topologies</td><td>Pipeline fonctionnel</td><td>13</td><td>✅</td></tr>
+<tr><td><span class="badge purple">Sprint 3</span></td><td>Validation + Rapport</td><td>Test replay + documentation</td><td>8</td><td>✅</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="center-slide">
+<h2>Diagramme de Gantt</h2>
+<img class="screenshot" src="../screenshots/Gantt.png" style="max-height:450px;width:auto">
+</section>
+
+<section class="center-slide">
+<h2>Suivi Kanban — Taiga</h2>
+<img class="screenshot" src="../screenshots/taiga.png" style="max-height:450px;width:auto">
+</section>
+
+<!-- ═══════════ BLOC 5 : MÉTHODOLOGIE ═══════════ -->
+<section class="section-divider center-slide">
+<div class="big-emoji">🔄</div>
+<h2>Bloc 5 — Méthodologie Agile</h2>
+<p class="subtitle">Scrum & Kanban</p>
+</section>
+
+<section>
+<h2>Pourquoi Agile ?</h2>
+<div class="grid-2">
+<div class="card">
+<h3>🔄 Scrum</h3>
+<ul>
+<li>Itérations courtes (Sprints)</li>
+<li>Livraison incrémentale</li>
+<li>Feedback continu de la MOA</li>
+<li>Sprint Review à chaque fin de sprint</li>
+</ul>
+</div>
+<div class="card">
+<h3>📊 Kanban</h3>
+<ul>
+<li>Visualisation du flux sur Taiga</li>
+<li>Colonnes : NEW → READY → IN PROGRESS → DONE</li>
+<li>Limite du travail en cours (WIP)</li>
+</ul>
+</div>
+</div>
+<div class="highlight-box">
+Technologies nouvelles (Kafka, Flink) → Forte incertitude → <strong>Agile est le meilleur choix</strong>
+</div>
+</section>
+
+<!-- ═══════════ BLOC 6 : IMPLÉMENTATION ═══════════ -->
+<section class="section-divider center-slide">
+<div class="big-emoji">⚡</div>
+<h2>Bloc 6 — Implémentation</h2>
+<p class="subtitle">Démonstration technique</p>
+</section>
+
+<section>
+<h2>Infrastructure Docker</h2>
+<div class="grid-2">
+<div>
+<table>
+<thead><tr><th>Service</th><th>Rôle</th></tr></thead>
+<tbody>
+<tr><td><span class="badge">Zookeeper</span></td><td>Coordination du cluster</td></tr>
+<tr><td><span class="badge green">Kafka</span></td><td>Log d'événements (le cœur)</td></tr>
+<tr><td><span class="badge orange">Flink JobManager</span></td><td>Gestion des jobs</td></tr>
+<tr><td><span class="badge purple">Flink TaskManager</span></td><td>Exécution des tâches</td></tr>
+</tbody>
+</table>
+</div>
+<div style="text-align:center"><img class="screenshot" src="../screenshots/2.png" style="max-height:300px"></div>
+</div>
+</section>
+
+<section>
+<h2>Topologie 1 : Filtrage des Bots</h2>
+<div class="card">
+<p style="font-size:0.8em">~20% du trafic web réel provient de robots (Googlebot, Bingbot...). Cette topologie les élimine en temps réel pour ne garder que les clics humains.</p>
+</div>
+<div style="text-align:center"><img class="screenshot" src="../screenshots/filtrage_bots.png" style="max-height:380px"></div>
+</section>
+
+<section>
+<h2>Topologie 2 : Agrégation Temps Réel</h2>
+<div class="card">
+<p style="font-size:0.8em">Calcul par <strong>fenêtres de 30 secondes</strong> : vues, paniers, achats, chiffre d'affaires et taux de conversion par produit.</p>
+</div>
+<div style="text-align:center"><img class="screenshot" src="../screenshots/agregation_stats.png" style="max-height:380px"></div>
+</section>
+
+<section>
+<h2>Topologie 3 : Détection d'Abandon</h2>
+<div class="card">
+<p style="font-size:0.8em"><strong>Traitement avec état (stateful) :</strong> si un client ajoute au panier mais n'achète pas en 60s → 🚨 alerte marketing avec action recommandée.</p>
+</div>
+<div style="text-align:center"><img class="screenshot" src="../screenshots/alerte_abandon1.png" style="max-height:380px"></div>
+</section>
+
+<section>
+<h2>Rétention & Replay — La Preuve Kappa</h2>
+<div class="highlight-box">
+<strong>Le test fondamental :</strong> Rejouer TOUS les événements depuis le début et vérifier que le résultat est <strong>identique</strong> au temps réel → Cohérence prouvée ✅
+</div>
+<div style="text-align:center"><img class="screenshot" src="../screenshots/validation_replay1.png" style="max-height:340px"></div>
+</section>
+
+<section>
+<h2>Topics Kafka & Rétention</h2>
+<table>
+<thead><tr><th>Topic</th><th>Contenu</th><th>Rétention</th><th>Partitions</th></tr></thead>
+<tbody>
+<tr><td><code>clics_ecommerce</code></td><td>Événements bruts (humains + bots)</td><td><strong>7 jours</strong></td><td>3</td></tr>
+<tr><td><code>clics_filtres</code></td><td>Événements nettoyés</td><td><strong>3 jours</strong></td><td>3</td></tr>
+<tr><td><code>stats_produits</code></td><td>Statistiques agrégées</td><td>1 jour</td><td>1</td></tr>
+<tr><td><code>alertes_marketing</code></td><td>Alertes d'abandon</td><td><strong>7 jours</strong></td><td>1</td></tr>
+</tbody>
+</table>
+<div class="highlight-box">
+La <strong>rétention</strong> remplace le Batch Layer de Lambda → C'est ce qui rend le Replay possible
+</div>
+</section>
+
+<!-- ═══════════ BLOC 7 : RISQUES ═══════════ -->
+<section class="section-divider center-slide">
+<div class="big-emoji">⚠️</div>
+<h2>Bloc 7 — Gestion des Risques</h2>
+<p class="subtitle">Identification, Prévention, Suivi</p>
+</section>
+
+<section>
+<h2>Matrice des Risques</h2>
+<table>
+<thead><tr><th>Risque</th><th>Prob.</th><th>Impact</th><th>Action préventive</th><th>Statut</th></tr></thead>
+<tbody>
+<tr><td>Perte de données Kafka</td><td class="risk-med">Moy.</td><td class="risk-high">Élevé</td><td>Rétention 7j + replay</td><td>✅ Mitigé</td></tr>
+<tr><td>Retard de livraison</td><td class="risk-high">Élevée</td><td class="risk-high">Élevé</td><td>Planning Poker + Sprints courts</td><td>✅ Mitigé</td></tr>
+<tr><td>Incompatibilité versions</td><td class="risk-med">Moy.</td><td class="risk-high">Élevé</td><td>Versions figées dans Docker</td><td>✅ Résolu</td></tr>
+<tr><td>Incohérence des données</td><td class="risk-low">Faible</td><td class="risk-high">Élevé</td><td>Test de replay automatisé</td><td>✅ Résolu</td></tr>
+<tr><td>Manque de compétences</td><td class="risk-high">Élevée</td><td class="risk-med">Moyen</td><td>Formation + documentation</td><td>✅ Résolu</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ═══════════ CONCLUSION ═══════════ -->
+<section class="section-divider center-slide">
+<div class="big-emoji">🎯</div>
+<h2>Conclusion & Perspectives</h2>
+</section>
+
+<section>
+<h2>Ce que nous avons accompli</h2>
+<div class="grid-2">
+<div class="card" style="border-color:rgba(102,187,106,0.3)">
+<h3 style="color:var(--kappa-green)">✅ Réalisé</h3>
+<ul>
+<li>Infrastructure Kafka/Flink/Docker</li>
+<li>Simulateur e-commerce réaliste</li>
+<li>3 topologies de traitement de flux</li>
+<li>Rétention configurable par topic</li>
+<li>Validation de cohérence par replay</li>
+<li>Documentation complète (7 blocs)</li>
+</ul>
+</div>
+<div class="card" style="border-color:rgba(171,71,188,0.3)">
+<h3 style="color:var(--kappa-purple)">🔮 Perspectives</h3>
+<ul>
+<li>Machine Learning en temps réel</li>
+<li>Prédiction du prochain achat</li>
+<li>Dashboard de monitoring live</li>
+<li>Déploiement cloud (AWS/GCP)</li>
+<li>Ajustement dynamique des prix</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="center-slide" data-background-gradient="linear-gradient(135deg, #0a0e1a 0%, #1a1040 50%, #0a0e1a 100%)">
+<div class="big-emoji">🙏</div>
+<h1>Merci !</h1>
+<p class="subtitle" style="font-size:0.8em;margin-top:20px">Des questions ?</p>
+<div style="margin-top:40px">
+<p style="font-size:0.55em;color:#888">
+<strong>Yazid TAHIRI ALAOUI</strong> · <strong>Souhayla ECH-CHARAY</strong> · <strong>Ouissal EL AMRANI</strong><br>
+Gestion de Projets Informatiques — Pr. Redouan ABAKOUY<br>
+ENSA Al Hoceima — 2025/2026
+</p>
+</div>
+</section>
+
+</div><!-- .slides -->
+</div><!-- .reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: 'c/t',
+  transition: 'slide',
+  transitionSpeed: 'default',
+  width: 1280,
+  height: 720,
+  margin: 0.08,
+  center: false
+});
+</script>
+</body>
+</html>
