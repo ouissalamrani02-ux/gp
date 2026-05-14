@@ -1,0 +1,83 @@
+% ============================================================================
+%  main.tex — Universal LaTeX Template (Entry Point)
+%  Author:  Yazid TAHIRI ALAOUI
+%  Usage:   Edit the metadata commands below, then compile with pdflatex.
+% ============================================================================
+\documentclass[a4paper,12pt]{report}
+
+% ── Load the style package ──────────────────────────────────────────────────
+\usepackage{styles/yazid-template}
+
+% ============================================================================
+%  DOCUMENT METADATA  — Edit these for each new project
+% ============================================================================
+\newcommand{\docKingdom}{ROYAUME DU MAROC}
+\newcommand{\docUniversity}{Université Abdelmalek Essaâdi}
+\newcommand{\docSchool}{École Nationale des Sciences Appliquées d'Al Hoceima}
+\newcommand{\docTitle}{TITRE DU DOCUMENT}
+\newcommand{\docSubtitle}{Sous-titre du projet}
+\newcommand{\docModule}{Nom du Module}
+\newcommand{\docAuthor}{Yazid TAHIRI ALAOUI}
+\newcommand{\docProgram}{1\`{e}re année -- Ingénierie Données (ID1)}
+\newcommand{\docSupervisor}{Pr. Nom PRÉNOM}
+\newcommand{\docYear}{2025 -- 2026}
+
+% ── Headers (uses commands from the .sty) ───────────────────────────────────
+\renewcommand{\headerLeft}{Titre du Document}
+\renewcommand{\headerRight}{ENSAH -- Année 2025/2026}
+
+% ── PDF metadata ────────────────────────────────────────────────────────────
+\hypersetup{
+    pdftitle={\docTitle},
+    pdfauthor={\docAuthor},
+    pdfsubject={\docModule},
+    pdfkeywords={ENSA, Projet, Template}
+}
+
+% ============================================================================
+%  BEGIN DOCUMENT
+% ============================================================================
+\begin{document}
+
+% ── Title Page ──────────────────────────────────────────────────────────────
+\input{frontmatter/titlepage}
+
+% ── Front Matter (roman page numbers) ──────────────────────────────────────
+\pagenumbering{roman}
+\newgeometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm, headheight=15pt}
+
+% ── Abstract / Résumé ──────────────────────────────────────────────────────
+\renewcommand{\thechapter}{\Roman{chapter}}
+\input{frontmatter/abstract}
+
+% ── Table of Contents ──────────────────────────────────────────────────────
+\newpage
+\renewcommand{\contentsname}{Table des matières}
+\tableofcontents
+\newpage
+
+% ── Main Content (arabic page numbers) ─────────────────────────────────────
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\setcounter{chapter}{0}
+
+% ── Include your chapters here ─────────────────────────────────────────────
+% Duplicate chapters/chapter-template.tex for each chapter, then include:
+\input{chapters/chapter-template}
+% \input{chapters/chapter-02}
+% \input{chapters/chapter-03}
+
+% ── Conclusion ─────────────────────────────────────────────────────────────
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+% Write your conclusion here...
+
+\vspace{2cm}
+\begin{flushright}
+\textit{\docAuthor}\\
+\textit{ENSAH -- \docYear}
+\end{flushright}
+
+\end{document}

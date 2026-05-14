@@ -1,0 +1,106 @@
+% ============================================================================
+%  chapter-template.tex — Example Chapter Skeleton
+%  Duplicate this file for each new chapter and rename accordingly.
+%  e.g.  chapters/chapter-01-introduction.tex
+%        chapters/chapter-02-methodology.tex
+% ============================================================================
+
+\chapter{Titre du Chapitre}
+\sloppy  % prevents overfull \hbox warnings in justified text
+
+% ── Section ─────────────────────────────────────────────────────────────────
+\section{Première Section}
+
+Rédigez le contenu de votre première section ici. Le template applique
+automatiquement la mise en forme définie dans le fichier de style
+(\texttt{yazid-template.sty}).
+
+% ── Subsection ──────────────────────────────────────────────────────────────
+\subsection{Sous-section}
+
+Exemple de liste à puces~:
+
+\begin{itemize}
+
+    \item Premier élément de la liste~;
+
+    \item Deuxième élément avec du texte en \textbf{gras} et en
+          \textit{italique}~;
+
+    \item Troisième élément.
+
+\end{itemize}
+
+% ── Another Section ─────────────────────────────────────────────────────────
+\section{Deuxième Section}
+
+Exemple de liste numérotée~:
+
+\begin{enumerate}
+
+    \item Étape numéro un~;
+
+    \item Étape numéro deux~;
+
+    \item Étape numéro trois.
+
+\end{enumerate}
+
+% ── Table Example ───────────────────────────────────────────────────────────
+\section{Exemple de Tableau}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{0.9\textwidth}{L{3cm} X C{2.5cm}}
+\toprule
+\textbf{\color{primarycolor}Colonne A} &
+\textbf{\color{primarycolor}Colonne B} &
+\textbf{\color{primarycolor}Colonne C} \\
+\midrule
+Ligne 1 & Description de la ligne 1 & Valeur \\
+\addlinespace[0.15cm]
+Ligne 2 & Description de la ligne 2 & Valeur \\
+\addlinespace[0.15cm]
+Ligne 3 & Description de la ligne 3 & Valeur \\
+\bottomrule
+\end{tabularx}
+\caption{Exemple de tableau avec le template}
+\end{table}
+
+% ── Bordered Figure Example ─────────────────────────────────────────────────
+\section{Exemple de Figure Encadrée}
+
+\begin{borderedfigure}
+    \centering
+    % Replace with your actual image path:
+    % \includegraphics[width=0.8\textwidth]{figures/your-image.png}
+    \textcolor{primarycolor}{\rule{0.6\textwidth}{4cm}}  % placeholder rectangle
+    \captionof{figure}{Description de la figure encadrée}
+\end{borderedfigure}
+
+% ── Info Box Example ────────────────────────────────────────────────────────
+\section{Exemple de Boîtes Stylisées}
+
+\begin{infobox}
+    \centering
+    \vspace{0.3cm}
+    {\large Ceci est une \textbf{boîte d'information}. Utilisez-la pour
+    mettre en valeur des éléments importants.}
+    \vspace{0.3cm}
+\end{infobox}
+
+\vspace{0.5cm}
+
+\begin{warningbox}
+    \textbf{\textcolor{red!70!black}{\large Attention}}\\[0.3cm]
+    Ceci est une boîte d'avertissement pour les informations critiques.
+\end{warningbox}
+
+\vspace{0.5cm}
+
+\begin{accentbox}
+    \centering
+    \vspace{0.3cm}
+    {\large Boîte avec bordure dorée pour les formules ou citations.}
+    \vspace{0.3cm}
+\end{accentbox}
