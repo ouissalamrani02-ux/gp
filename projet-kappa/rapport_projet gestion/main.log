@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.3.14)  23 MAR 2026 11:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.3.14)  14 MAY 2026 22:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1112,8 +1112,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 40
 
 (C:\Users\yazid\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-No file main.aux.
+) (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
@@ -1230,11 +1229,12 @@ Package caption Info: End \AtBeginDocument code.
 
 \c@lstlisting=\count358
 Package hyperref Info: Link coloring ON on input line 40.
+(main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-(frontmatter/titlepage.tex
-<logos/UAE.png, id=30, 315.579pt x 112.0185pt>
+ (frontmatter/titlepage.tex
+<logos/UAE.png, id=278, 315.579pt x 112.0185pt>
 File: logos/UAE.png Graphic file (type png)
 <use logos/UAE.png>
 Package pdftex.def Info: logos/UAE.png  used on input line 25.
@@ -1287,7 +1287,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (C:\Users\yazid\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-<logos/ENSAH.png, id=32, 41.1136pt x 32.7624pt>
+<logos/ENSAH.png, id=280, 41.1136pt x 32.7624pt>
 File: logos/ENSAH.png Graphic file (type png)
 <use logos/ENSAH.png>
 Package pdftex.def Info: logos/ENSAH.png  used on input line 30.
@@ -1333,15 +1333,10 @@ d/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./logos/UAE.png>
  (frontmatter/abstract.tex) [1
 
 
-]
-No file main.toc.
-\tf@toc=\write5
-\openout5 = `main.toc'.
+] (main.toc [2]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+8.
 
-[2] (chapters/chapter-template.tex
-Chapitre 1.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-6.
 (C:\Users\yazid\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1349,31 +1344,1537 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+)
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+ [3]
+(main.lof)
+\tf@lof=\write6
+\openout6 = `main.lof'.
+
+ [4] (main.lot)
+\tf@lot=\write7
+\openout7 = `main.lot'.
+
+ [5] (chapters/chapter-01-introduction.tex
+Chapitre 1.
+
+Underfull \hbox (badness 10000) in alignment at lines 39--39
+[][][][] 
+ []
+
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
 
-
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 67.
+(Font)              using `T1/lmr/bx/n' instead on input line 40.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.73 \begin{borderedfigure}
-                            [1
+l.43 ...Les Trois Piliers de l'Architecture Kappa}
+                                                   [1
+
+])
+(chapters/chapter-02-acteurs.tex [2]
+Chapitre 2.
+[3
+
+] [4]) (chapters/chapter-03-planification.tex [5]
+Chapitre 3.
+[6
 
 ]
+<../screenshots/Gantt.png, id=475, 1159.9335pt x 392.667pt>
+File: ../screenshots/Gantt.png Graphic file (type png)
+<use ../screenshots/Gantt.png>
+Package pdftex.def Info: ../screenshots/Gantt.png  used on input line 92.
+(pdftex.def)             Requested size: 432.24411pt x 146.32706pt.
+
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 78.
+(caption)                particular \caption on input line 93.
 See the caption package documentation for explanation.
 
-) [2] [3
 
-] (main.aux)
+Overfull \hbox (2.31268pt too wide) in paragraph at lines 121--121
+ []|[]\T1/lmr/bx/n/12 (-20) Priorité[]| 
+ []
+
+
+Overfull \hbox (2.08464pt too wide) in paragraph at lines 121--121
+ []|\T1/lmr/m/n/12 (-20) Moyenne| 
+ []
+
+[7 <../screenshots/Gantt.png>]
+Underfull \hbox (badness 10000) in alignment at lines 172--172
+[][][][] 
+ []
+
+[8]) (chapters/chapter-04-implementation.tex [9]
+Chapitre 4.
+
+Overfull \hbox (65.26407pt too wide) in paragraph at lines 26--26
+[]|\T1/lmtt/m/n/12 stream_processing/filtrage.py|  
+ []
+
+
+Overfull \hbox (77.61407pt too wide) in paragraph at lines 26--26
+[]|\T1/lmtt/m/n/12 stream_processing/agregation.py|  
+ []
+
+
+Overfull \hbox (120.8391pt too wide) in paragraph at lines 26--26
+[]|\T1/lmtt/m/n/12 stream_processing/detection_abandon.py|  
+ []
+
+
+Overfull \hbox (15.86404pt too wide) in paragraph at lines 26--26
+[]|\T1/lmtt/m/n/12 config/test_replay.py|  
+ []
+
+
+Overfull \hbox (10.66382pt too wide) in paragraph at lines 32--33
+[]\T1/lmr/m/n/12 (-20) L'infrastructure de base re-pose sur des conte-neurs \T1
+/lmr/bx/n/12 (-20) Do-cker \T1/lmr/m/n/12 (-20) or-ches-trés via \T1/lmtt/m/n/1
+2 docker-compose\T1/lmr/m/n/12 (-20) .
+ []
+
+<../screenshots/2.png, id=490, 1153.30875pt x 611.886pt>
+File: ../screenshots/2.png Graphic file (type png)
+<use ../screenshots/2.png>
+Package pdftex.def Info: ../screenshots/2.png  used on input line 38.
+(pdftex.def)             Requested size: 345.7966pt x 183.46451pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 39.
+See the caption package documentation for explanation.
+
+
+Overfull \vbox (115.06874pt too high) detected at line 40
+ []
+
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 40.
+
+Overfull \vbox (116.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (117.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (118.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (119.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (120.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (121.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (122.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (123.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (124.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (125.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (126.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (127.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (128.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (129.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (130.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (131.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (132.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (133.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (134.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (135.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (136.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (137.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (138.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (139.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (140.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (141.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (142.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (143.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (144.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (145.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (146.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (147.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (148.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (149.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (150.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (151.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (152.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (153.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (154.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (155.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (156.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (157.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (158.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (159.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (160.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (161.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (162.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (163.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (164.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (165.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (166.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (167.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (168.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (169.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (170.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (171.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (172.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (173.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (174.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (175.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (176.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (177.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (178.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (179.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (180.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (181.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (182.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (183.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (184.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (185.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (186.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (187.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (188.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (189.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (190.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (191.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (192.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (193.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (194.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (195.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (196.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (197.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (198.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (199.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (200.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (201.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (202.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (203.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (204.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (205.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (206.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (207.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (208.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (209.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (210.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (211.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (212.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (213.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (214.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (215.06874pt too high) detected at line 40
+ []
+
+
+Overfull \vbox (216.06874pt too high) detected at line 40
+ []
+
+
+Package mdframed Warning: correct box splittet fails
+ It seems you are using a non splittable contents
+(mdframed)                 on input line 40.
+
+Package mdframed Info: You first box width is to small
+ mdframed fixed it
+(mdframed)              on input line 40.
+[10
+
+]
+(C:\Users\yazid\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 46.
+
+Underfull \hbox (badness 10000) in alignment at lines 82--82
+[][][] 
+ []
+
+[11 <../screenshots/2.png>]
+<../screenshots/filtrage_bots.png, id=515, 1156.92226pt x 616.704pt>
+File: ../screenshots/filtrage_bots.png Graphic file (type png)
+<use ../screenshots/filtrage_bots.png>
+Package pdftex.def Info: ../screenshots/filtrage_bots.png  used on input line 1
+03.
+(pdftex.def)             Requested size: 432.24411pt x 230.4071pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 104.
+See the caption package documentation for explanation.
+
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 105.
+
+
+Overfull \vbox (1.1541pt too high) detected at line 105
+ []
+
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 105.
+
+Overfull \vbox (2.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (3.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (4.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (5.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (6.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (7.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (8.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (9.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (10.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (11.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (12.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (13.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (14.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (15.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (16.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (17.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (18.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (19.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (20.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (21.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (22.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (23.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (24.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (25.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (26.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (27.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (28.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (29.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (30.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (31.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (32.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (33.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (34.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (35.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (36.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (37.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (38.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (39.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (40.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (41.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (42.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (43.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (44.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (45.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (46.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (47.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (48.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (49.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (50.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (51.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (52.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (53.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (54.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (55.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (56.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (57.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (58.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (59.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (60.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (61.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (62.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (63.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (64.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (65.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (66.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (67.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (68.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (69.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (70.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (71.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (72.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (73.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (74.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (75.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (76.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (77.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (78.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (79.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (80.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (81.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (82.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (83.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (84.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (85.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (86.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (87.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (88.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (89.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (90.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (91.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (92.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (93.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (94.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (95.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (96.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (97.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (98.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (99.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (100.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (101.1541pt too high) detected at line 105
+ []
+
+
+Overfull \vbox (102.1541pt too high) detected at line 105
+ []
+
+
+Package mdframed Warning: correct box splittet fails
+ It seems you are using a non splittable contents
+(mdframed)                 on input line 105.
+
+Package mdframed Info: You first box width is to small
+ mdframed fixed it
+(mdframed)              on input line 105.
+[12]
+Overfull \hbox (5.80692pt too wide) in paragraph at lines 131--131
+[]|\T1/lmr/m/n/12 (-20) count(abandon_panier)|  
+ []
+
+<../screenshots/agregation_stats.png, id=523, 693.792pt x 617.30624pt>
+File: ../screenshots/agregation_stats.png Graphic file (type png)
+<use ../screenshots/agregation_stats.png>
+Package pdftex.def Info: ../screenshots/agregation_stats.png  used on input lin
+e 137.
+(pdftex.def)             Requested size: 432.24411pt x 384.59094pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 138.
+See the caption package documentation for explanation.
+
+
+Overfull \vbox (245.232pt too high) detected at line 139
+ []
+
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 139.
+
+Overfull \vbox (246.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (247.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (248.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (249.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (250.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (251.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (252.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (253.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (254.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (255.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (256.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (257.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (258.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (259.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (260.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (261.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (262.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (263.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (264.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (265.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (266.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (267.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (268.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (269.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (270.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (271.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (272.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (273.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (274.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (275.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (276.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (277.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (278.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (279.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (280.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (281.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (282.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (283.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (284.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (285.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (286.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (287.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (288.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (289.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (290.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (291.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (292.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (293.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (294.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (295.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (296.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (297.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (298.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (299.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (300.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (301.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (302.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (303.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (304.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (305.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (306.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (307.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (308.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (309.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (310.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (311.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (312.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (313.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (314.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (315.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (316.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (317.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (318.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (319.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (320.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (321.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (322.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (323.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (324.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (325.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (326.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (327.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (328.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (329.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (330.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (331.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (332.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (333.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (334.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (335.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (336.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (337.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (338.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (339.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (340.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (341.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (342.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (343.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (344.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (345.232pt too high) detected at line 139
+ []
+
+
+Overfull \vbox (346.232pt too high) detected at line 139
+ []
+
+
+Package mdframed Warning: correct box splittet fails
+ It seems you are using a non splittable contents
+(mdframed)                 on input line 139.
+
+Package mdframed Info: You first box width is to small
+ mdframed fixed it
+(mdframed)              on input line 139.
+[13{C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.e
+nc} <../screenshots/filtrage_bots.png>]
+<../screenshots/alerte_abandon1.png, id=531, 596.82974pt x 614.295pt>
+File: ../screenshots/alerte_abandon1.png Graphic file (type png)
+<use ../screenshots/alerte_abandon1.png>
+Package pdftex.def Info: ../screenshots/alerte_abandon1.png  used on input line
+ 160.
+(pdftex.def)             Requested size: 432.24411pt x 444.89786pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 161.
+See the caption package documentation for explanation.
+
+Package mdframed Info: Not enough space on this page on input line 162.
+[14{C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.e
+nc} <../screenshots/agregation_stats.png>]
+Package mdframed Info: Not enough space on this page on input line 162.
+
+Overfull \hbox (5.39041pt too wide) in paragraph at lines 185--185
+[]|\T1/lmtt/m/n/12 alertes_marketing|  
+ []
+
+) (chapters/chapter-05-retention-replay.tex [15 <../screenshots/alerte_abandon1
+.png>] [16]
+Chapitre 5.
+
+Overfull \hbox (5.39041pt too wide) in paragraph at lines 32--32
+[]|\T1/lmtt/m/n/12 alertes_marketing|  
+ []
+
+[17
+
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <17.28> on input line 78.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 78.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 82.
+<../screenshots/validation_replay1.png, id=552, 637.78275pt x 607.67026pt>
+File: ../screenshots/validation_replay1.png Graphic file (type png)
+<use ../screenshots/validation_replay1.png>
+Package pdftex.def Info: ../screenshots/validation_replay1.png  used on input l
+ine 96.
+(pdftex.def)             Requested size: 432.24411pt x 411.84727pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 97.
+See the caption package documentation for explanation.
+
+Package mdframed Info: Not enough space on this page on input line 98.
+[18{C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
+Package mdframed Info: Not enough space on this page on input line 98.
+[19 <../screenshots/validation_replay1.png>]
+Underfull \hbox (badness 1184) in paragraph at lines 142--142
+[]|\T1/lmr/m/n/12 (+20) Rejouer 7 jours d'évé-ne-ments
+ []
+
+) (chapters/chapter-06-methodologie.tex [20]
+Chapitre 6.
+
+Underfull \hbox (badness 10000) in alignment at lines 26--26
+[][][][] 
+ []
+
+[21
+
+]
+<../screenshots/taiga.png, id=598, 1156.32pt x 502.87875pt>
+File: ../screenshots/taiga.png Graphic file (type png)
+<use ../screenshots/taiga.png>
+Package pdftex.def Info: ../screenshots/taiga.png  used on input line 48.
+(pdftex.def)             Requested size: 432.24411pt x 187.98055pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 49.
+See the caption package documentation for explanation.
+
+) (chapters/chapter-07-risques.tex [22 <../screenshots/taiga.png>]
+Chapitre 7.
+
+Overfull \hbox (13.1793pt too wide) in paragraph at lines 29--29
+ []|[]\T1/lmr/bx/n/12 (-20) Probabilité[]| 
+ []
+
+
+Overfull \hbox (13.1793pt too wide) in paragraph at lines 53--53
+ []|[]\T1/lmr/bx/n/12 (-20) Probabilité[]| 
+ []
+
+[23
+
+]
+Underfull \hbox (badness 5563) in paragraph at lines 77--77
+[]|\T1/lmr/m/n/12 (+20) Auto-formation et pro-to-ty-page en
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 112--112
+[][][][] 
+ []
+
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 119.
+
+[24]) [25] [26
+
+] [27] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1382,39 +2883,37 @@ L3 programming layer <2024-01-04>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  CBF6F09DD35871111B2705C2F26C9D3B;1259.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D9505F6E082F38F24F65DF7D224DFB56;12656.
  ) 
 Here is how much of TeX's memory you used:
- 31329 strings out of 474486
- 586492 string characters out of 5743755
- 1936542 words of memory out of 5000000
- 52989 multiletter control sequences out of 15000+600000
- 630311 words of font info for 112 fonts, out of 8000000 for 9000
+ 32251 strings out of 474486
+ 600276 string characters out of 5743755
+ 2015542 words of memory out of 5000000
+ 53607 multiletter control sequences out of 15000+600000
+ 651505 words of font info for 178 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,12n,107p,1003b,589s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,12n,107p,1003b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
+fb><C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.p
 fb><C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pf
 b><C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb
-><C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb
-><C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb
-><C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb
-><C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symb
-ols/msam10.pfb>
-Output written on main.pdf (6 pages, 508855 bytes).
+><C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb>
+<C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C
+:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C
+:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C
+:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C
+:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C
+:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C
+:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C
+:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb><
+C:/Users/yazid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
+s/msam10.pfb>
+Output written on main.pdf (33 pages, 1418268 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 20 named destinations out of 1000 (max. 500000)
- 41591 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 740 PDF objects out of 1000 (max. 8388607)
+ 177 named destinations out of 1000 (max. 500000)
+ 51850 words of extra memory for PDF output out of 61914 (max. 10000000)
 

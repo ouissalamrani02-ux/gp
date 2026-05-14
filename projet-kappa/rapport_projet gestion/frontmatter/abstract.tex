@@ -7,30 +7,24 @@
 \chapter*{Résumé}
 \addcontentsline{toc}{chapter}{Résumé}
 
-\begin{center}
-{\large
-Décrivez ici, en quelques paragraphes, le contexte, les objectifs et les
-principaux résultats de votre projet.\\[0.4cm]
+\vspace{0.5cm}
 
-Indiquez la problématique abordée, la méthodologie adoptée et les
-contributions essentielles de votre travail.\\[0.4cm]
+Dans le cadre du module de \textbf{Gestion de Projets Informatiques} dispensé à l'École Nationale des Sciences Appliquées d'Al Hoceima, ce projet vise à concevoir, implémenter et valider une \textbf{architecture Kappa} appliquée à une plateforme e-commerce fictive.
 
-\textbf{Mots-clés :} Mot-clé~1, Mot-clé~2, Mot-clé~3, Mot-clé~4.
+\vspace{0.3cm}
+
+Face à la complexité croissante des architectures de données traditionnelles --- notamment l'architecture \textbf{Lambda} qui impose la maintenance de deux couches distinctes de traitement (batch et temps réel) ---, l'architecture \textbf{Kappa}, proposée par Jay Kreps en 2014, offre une alternative élégante reposant sur un \textbf{unique flux de traitement continu}. Ce projet démontre concrètement cette approche en déployant une infrastructure complète composée d'\textbf{Apache Kafka} (log d'événements), \textbf{Apache Flink} (référence de traitement de flux) et \textbf{Docker} (conteneurisation).
+
+\vspace{0.3cm}
+
+Le système mis en place traite en temps réel des événements comportementaux simulés (vues, ajouts au panier, achats, abandons) à travers trois topologies spécialisées : le \textbf{filtrage des bots}, l'\textbf{agrégation statistique par fenêtres temporelles} et la \textbf{détection d'abandon de panier} avec alertes marketing. La validation du système repose sur le mécanisme de \textbf{replay} --- pierre angulaire de l'architecture Kappa --- qui permet de rejouer l'intégralité du journal d'événements pour recalculer les résultats et confirmer leur parfaite cohérence avec le traitement temps réel.
+
+\vspace{0.3cm}
+
+Le projet a été conduit selon une méthodologie \textbf{Agile (Scrum + Kanban)}, structuré en 4 sprints, avec une gestion rigoureuse des risques et une planification par \textbf{Planning Poker}. L'ensemble du processus a été suivi via \textbf{Taiga} (Kanban) et \textbf{GanttProject} (planification temporelle).
+
+\vspace{0.5cm}
+
+\noindent\textbf{Mots-clés :} Architecture Kappa, Apache Kafka, Traitement de flux, Temps réel, E-commerce, Rétention, Replay, Docker, Gestion de projet Agile.
+
 \vfill
-}
-\end{center}
-
-% --- English Abstract (optional, uncomment if needed) ---
-% \chapter*{Abstract}
-% \addcontentsline{toc}{chapter}{Abstract}
-%
-% \begin{center}
-% {\large
-% Provide a concise summary of your project in English here.\\[0.4cm]
-%
-% State the problem, methodology, and key findings.\\[0.4cm]
-%
-% \textbf{Keywords:} Keyword~1, Keyword~2, Keyword~3, Keyword~4.
-% \vfill
-% }
-% \end{center}

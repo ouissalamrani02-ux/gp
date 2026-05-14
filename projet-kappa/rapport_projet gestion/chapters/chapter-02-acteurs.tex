@@ -2,22 +2,126 @@
 
 \section{Gouvernance du Projet}
 
-Conformément aux principes de gestion de projet, nous avons identifié les parties prenantes selon le modèle classique.
+Conformément aux principes de gestion de projet (Chapitre 2 du cours), nous avons identifié les parties prenantes selon le modèle classique \textbf{MOA / MOE / Chef de Projet}.
 
-\subsection{Maîtrise d'Ouvrage (MOA)}
-La MOA représente l'équipe Marketing de notre plateforme e-commerce. Son rôle est de définir le besoin :
-\begin{itemize}
-    \item Surveiller les clics en temps réel~;
-    \item Être alertée lorsqu'un utilisateur abandonne son panier~;
-    \item Obtenir des statistiques de vente en direct.
-\end{itemize}
+\subsection{Maîtrise d'Ouvrage (MOA) --- Le Client}
 
-\subsection{Maîtrise d'Œuvre (MOE)}
-La MOE est notre équipe de développement. Elle est chargée de concevoir et d'implémenter la solution technique répondant aux exigences de la MOA, en utilisant Kafka, Flink et Docker.
+La MOA représente l'\textbf{équipe Marketing} de notre plateforme e-commerce fictive. Son rôle est de définir le besoin :
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{4cm} X}
+\toprule
+\textbf{\color{primarycolor}Aspect} & \textbf{\color{primarycolor}Détail} \\
+\midrule
+\textbf{Qui ?} & Directeur Marketing de la plateforme e-commerce \\
+\addlinespace[0.1cm]
+\textbf{Besoin principal} & Comprendre le comportement des clients en temps réel \\
+\addlinespace[0.1cm]
+\textbf{Objectifs} & Réduire le taux d'abandon de panier, personnaliser l'expérience \\
+\addlinespace[0.1cm]
+\textbf{Exigences} & Voir les clics en temps réel, être alerté des abandons de panier, obtenir des statistiques de vente par produit \\
+\addlinespace[0.1cm]
+\textbf{Validation} & Vérifier que les données affichées correspondent à la réalité \\
+\bottomrule
+\end{tabularx}
+\caption{Fiche de la Maîtrise d'Ouvrage}
+\end{table}
+
+\subsection{Maîtrise d'Œuvre (MOE) --- L'Équipe Technique}
+
+La MOE est notre \textbf{équipe de développement}. Elle est chargée de concevoir et d'implémenter la solution technique répondant aux exigences de la MOA.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{4cm} X}
+\toprule
+\textbf{\color{primarycolor}Aspect} & \textbf{\color{primarycolor}Détail} \\
+\midrule
+\textbf{Qui ?} & L'équipe d'étudiants développeurs \\
+\addlinespace[0.1cm]
+\textbf{Rôle} & Concevoir et réaliser l'architecture technique \\
+\addlinespace[0.1cm]
+\textbf{Responsabilités} & Déployer l'infrastructure (Docker, Kafka, Flink), développer les topologies de traitement, configurer la rétention \\
+\addlinespace[0.1cm]
+\textbf{Contraintes} & Technologies imposées : Kafka, Flink, Docker \\
+\bottomrule
+\end{tabularx}
+\caption{Fiche de la Maîtrise d'Œuvre}
+\end{table}
 
 \subsection{Chef de Projet}
-Le chef de projet fait le lien entre la MOA et la MOE. Il s'assure que la MOE ne construit pas une solution trop complexe ("usine à gaz") et que la MOA comprend les contraintes techniques, notamment les enjeux de stockage et de rétention des données.
 
-\section{Matrice des Responsabilités}
+Le chef de projet fait le lien entre la MOA et la MOE. Il s'assure que la MOE ne construit pas une solution trop complexe (<<~usine à gaz~>>) et que la MOA comprend les contraintes techniques, notamment les enjeux de stockage et de rétention des données.
 
-La communication entre ces acteurs est facilitée par des réunions régulières (Daily Standup) et des démonstrations en fin de Sprint (Sprint Review), permettant à la MOA de valider les livrables progressivement.
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{4cm} X}
+\toprule
+\textbf{\color{primarycolor}Aspect} & \textbf{\color{primarycolor}Détail} \\
+\midrule
+\textbf{Rôle} & Coordonner la MOA (Marketing) et la MOE (Dev) \\
+\addlinespace[0.1cm]
+\textbf{Missions} & Planifier les sprints, gérer les risques, assurer la communication \\
+\addlinespace[0.1cm]
+\textbf{Outils} & Taiga (Kanban), GanttProject, Docker Desktop \\
+\bottomrule
+\end{tabularx}
+\caption{Fiche du Chef de Projet}
+\end{table}
+
+\section{Matrice RACI}
+
+La matrice RACI définit clairement les responsabilités pour chaque activité du projet :
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{X C{2.5cm} C{2.5cm} C{2.5cm}}
+\toprule
+\textbf{\color{primarycolor}Activité} &
+\textbf{\color{primarycolor}MOA} &
+\textbf{\color{primarycolor}Chef de Projet} &
+\textbf{\color{primarycolor}MOE} \\
+\midrule
+Définir les besoins & \textbf{R} & C & I \\
+Choisir l'architecture & C & \textbf{A} & \textbf{R} \\
+Planifier les sprints & I & \textbf{R} & C \\
+Déployer l'infrastructure & I & I & \textbf{R} \\
+Développer les topologies & I & C & \textbf{R} \\
+Configurer la rétention & I & I & \textbf{R} \\
+Tester la cohérence (Replay) & C & \textbf{A} & \textbf{R} \\
+Valider les résultats (Recette) & \textbf{R} & A & I \\
+Rédiger le rapport & C & \textbf{R} & C \\
+Présenter le projet & \textbf{R} & \textbf{R} & \textbf{R} \\
+\bottomrule
+\end{tabularx}
+\caption{Matrice RACI --- \textit{R = Responsable, A = Approbateur, C = Consulté, I = Informé}}
+\end{table}
+
+\section{Communication entre Acteurs}
+
+\subsection{Réunions}
+
+La communication entre les acteurs est facilitée par des réunions régulières :
+\begin{itemize}
+    \item \textbf{Daily Standup} (informel) : point quotidien entre les membres de l'équipe~;
+    \item \textbf{Sprint Review} : à chaque fin de sprint, démonstration des livrables à la MOA~;
+    \item \textbf{Sprint Retrospective} : retour d'expérience pour améliorer le processus.
+\end{itemize}
+
+\subsection{Outils de Communication}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{4cm} X}
+\toprule
+\textbf{\color{primarycolor}Outil} & \textbf{\color{primarycolor}Usage} \\
+\midrule
+\textbf{Taiga} & Kanban board --- suivi des tâches et User Stories \\
+\textbf{GanttProject} & Planification temporelle et chemin critique \\
+\textbf{WhatsApp / Discord} & Communication instantanée au quotidien \\
+\textbf{Git} & Gestion du code source et versioning \\
+\bottomrule
+\end{tabularx}
+\caption{Outils de communication du projet}
+\end{table}

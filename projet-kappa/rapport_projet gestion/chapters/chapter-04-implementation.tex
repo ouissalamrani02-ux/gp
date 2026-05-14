@@ -1,8 +1,37 @@
 \chapter{Implémentation Technique}
 
+\section{Vue d'Ensemble des Composants}
+
+Notre architecture Kappa est composée de \textbf{5 composants principaux}, chacun ayant un rôle précis dans la chaîne de traitement événementiel :
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{C{0.8cm} L{3.5cm} L{4cm} X}
+\toprule
+\textbf{\color{primarycolor}\#} &
+\textbf{\color{primarycolor}Composant} &
+\textbf{\color{primarycolor}Fichier} &
+\textbf{\color{primarycolor}Rôle} \\
+\midrule
+1 & Simulateur E-commerce & \texttt{simulateur.py} & Génère les événements clients \\
+\addlinespace[0.1cm]
+2 & Topologie de Filtrage & \texttt{stream\_processing/filtrage.py} & Élimine les bots \\
+\addlinespace[0.1cm]
+3 & Topologie d'Agrégation & \texttt{stream\_processing/agregation.py} & Calcule les stats en temps réel \\
+\addlinespace[0.1cm]
+4 & Détection d'Abandon & \texttt{stream\_processing/detection\_abandon.py} & Alertes d'abandon de panier \\
+\addlinespace[0.1cm]
+5 & Test de Replay & \texttt{config/test\_replay.py} & Valide la cohérence du système \\
+\bottomrule
+\end{tabularx}
+\caption{Les 5 composants de l'architecture Kappa}
+\end{table}
+
 \section{Infrastructure et Ingestion}
 
-L'infrastructure de base repose sur des conteneurs Docker pour Zookeeper, Kafka et Flink. Le composant d'ingestion est un simulateur développé en Python (\texttt{simulateur.py}) qui génère des événements de navigation (vues, ajouts au panier, achats, abandons) et les envoie dans le topic Kafka \texttt{clics\_ecommerce}.
+L'infrastructure de base repose sur des conteneurs \textbf{Docker} orchestrés via \texttt{docker-compose}. Quatre services sont déployés : Zookeeper (coordination), Kafka (log d'événements), et un cluster Flink (JobManager + TaskManager).
+
+Le composant d'ingestion est un simulateur développé en Python (\texttt{simulateur.py}) qui génère des événements de navigation (vues, ajouts au panier, achats, abandons) et les envoie dans le topic Kafka \texttt{clics\_ecommerce}.
 
 \begin{borderedfigure}
     \centering
@@ -10,12 +39,65 @@ L'infrastructure de base repose sur des conteneurs Docker pour Zookeeper, Kafka 
     \captionof{figure}{Démarrage des conteneurs Docker et création des topics}
 \end{borderedfigure}
 
+\subsection{Structure d'un Événement}
+
+Chaque événement généré par le simulateur est un document JSON contenant les informations suivantes :
+
+\begin{lstlisting}[language=Python, caption={Structure d'un événement e-commerce}]
+{
+    "event_id":   "a1b2c3d4-e5f6-...",
+    "user_id":    "U1234",
+    "session_id": "ab12cd34",
+    "action":     "ajout_panier",
+    "produit":    "PC_Gamer",
+    "prix":       12999.00,
+    "categorie":  "Informatique",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0)...",
+    "is_bot":     false,
+    "timestamp":  "2026-05-13T21:43:55.357066"
+}
+\end{lstlisting}
+
+\subsection{Catalogue de Produits}
+
+Le simulateur utilise un catalogue de 8 produits e-commerce avec des prix en Dirhams Marocains :
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{4cm} C{3cm} C{3cm}}
+\toprule
+\textbf{\color{primarycolor}Produit} &
+\textbf{\color{primarycolor}Prix (MAD)} &
+\textbf{\color{primarycolor}Catégorie} \\
+\midrule
+PC Gamer & 12 999,00 & Informatique \\
+Souris Sans Fil & 299,00 & Accessoires \\
+Clavier Mécanique & 899,00 & Accessoires \\
+Écran 4K & 4 500,00 & Informatique \\
+Casque Audio & 1 200,00 & Audio \\
+Webcam HD & 650,00 & Accessoires \\
+SSD 1 To & 800,00 & Stockage \\
+Chaise Gaming & 3 500,00 & Mobilier \\
+\bottomrule
+\end{tabularx}
+\caption{Catalogue de produits du simulateur}
+\end{table}
+
 \section{Topologies de Traitement}
 
 Conformément à l'architecture Kappa, les données traversent plusieurs topologies de traitement événementiel :
 
 \subsection{Topologie de Filtrage}
-Elle lit le flux brut et élimine les événements générés par des robots.
+
+Premier maillon de la chaîne, elle lit le flux brut et sépare les événements humains des événements de robots. Environ \textbf{20\%} des événements simulés proviennent de bots (Googlebot, Bingbot, etc.), ce qui est réaliste --- sur un vrai site e-commerce, 30 à 40\% du trafic provient de robots.
+
+\textbf{Critères de détection des bots :}
+\begin{enumerate}
+    \item Champ \texttt{is\_bot} à \texttt{true}~;
+    \item User-Agent contenant <<~googlebot~>>, <<~bingbot~>>, <<~crawler~>>~;
+    \item Identifiant utilisateur commençant par <<~BOT\_~>>.
+\end{enumerate}
+
 \begin{borderedfigure}
     \centering
     \includegraphics[width=\textwidth]{../screenshots/filtrage_bots.png}
@@ -23,7 +105,33 @@ Elle lit le flux brut et élimine les événements générés par des robots.
 \end{borderedfigure}
 
 \subsection{Topologie d'Agrégation}
-Elle calcule la somme des paniers et le nombre de vues en temps réel par des fenêtres glissantes de 30 secondes.
+
+Elle calcule des \textbf{statistiques en temps réel} par produit en utilisant des \textbf{fenêtres temporelles glissantes de 30 secondes}. À chaque fin de fenêtre, les métriques suivantes sont publiées dans le topic \texttt{stats\_produits} :
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{3.5cm} L{4cm} X}
+\toprule
+\textbf{\color{primarycolor}Métrique} &
+\textbf{\color{primarycolor}Calcul} &
+\textbf{\color{primarycolor}Utilité métier} \\
+\midrule
+Vues & count(vue\_produit) & Popularité du produit \\
+\addlinespace[0.1cm]
+Ajouts panier & count(ajout\_panier) & Intention d'achat \\
+\addlinespace[0.1cm]
+Achats & count(achat\_valide) & Ventes réelles \\
+\addlinespace[0.1cm]
+Abandons & count(abandon\_panier) & Perte potentielle \\
+\addlinespace[0.1cm]
+Chiffre d'affaires & sum(prix $\times$ achats) & Revenu en temps réel \\
+\addlinespace[0.1cm]
+Taux de conversion & achats / vues $\times$ 100 & Efficacité commerciale \\
+\bottomrule
+\end{tabularx}
+\caption{Métriques calculées par la topologie d'agrégation}
+\end{table}
+
 \begin{borderedfigure}
     \centering
     \includegraphics[width=\textwidth]{../screenshots/agregation_stats.png}
@@ -31,19 +139,49 @@ Elle calcule la somme des paniers et le nombre de vues en temps réel par des fe
 \end{borderedfigure}
 
 \subsection{Topologie de Détection d'Abandon}
-Elle maintient un état en mémoire pour identifier les abandons de panier et déclencher une alerte marketing immédiate après 60 secondes d'inactivité.
+
+Elle implémente un traitement \textbf{avec état} (\textit{Stateful Processing}) pour identifier les abandons de panier. Lorsqu'un utilisateur ajoute un produit au panier, un timer de \textbf{60 secondes} démarre :
+
+\begin{itemize}
+    \item \textbf{Cas 1} --- L'utilisateur achète avant 60s $\Rightarrow$ Timer annulé, pas d'alerte~;
+    \item \textbf{Cas 2} --- 60 secondes passent sans achat $\Rightarrow$ Alerte d'abandon déclenchée~;
+    \item \textbf{Cas 3} --- Abandon explicite $\Rightarrow$ Alerte immédiate.
+\end{itemize}
+
+\textbf{Règles métier :}
+\begin{itemize}
+    \item \textbf{Priorité haute} : si le prix du produit $>$ 2000 MAD~;
+    \item \textbf{Priorité normale} : si le prix $\leq$ 2000 MAD~;
+    \item \textbf{Action recommandée} : abandon par timeout $\Rightarrow$ email de relance avec réduction, abandon explicite $\Rightarrow$ notification push immédiate.
+\end{itemize}
+
 \begin{borderedfigure}
     \centering
-    \includegraphics[width=\textwidth]{../screenshots/alerte_abandon.png}
+    \includegraphics[width=\textwidth]{../screenshots/alerte_abandon1.png}
     \captionof{figure}{Déclenchement d'une alerte marketing d'abandon de panier}
 \end{borderedfigure}
 
-\section{Rétention et Replay}
+\section{Topics Kafka et Rétention}
 
-La particularité de Kappa est la gestion de la rétention des événements. Nous avons configuré une \textbf{rétention de 7 jours} sur le topic principal. En cas de changement de logique ou d'audit, il est possible de rejouer tout l'historique (\texttt{--from-beginning}) pour recalculer les statistiques. C'est le test de cohérence.
+L'architecture utilise \textbf{4 topics Kafka}, chacun avec une politique de rétention adaptée à son usage :
 
-\begin{borderedfigure}
-    \centering
-    \includegraphics[width=\textwidth]{../screenshots/validation_replay.png}
-    \captionof{figure}{Test de Replay validant la parfaite cohérence avec le traitement temps réel}
-\end{borderedfigure}
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{3.5cm} X C{2cm} C{2cm}}
+\toprule
+\textbf{\color{primarycolor}Topic} &
+\textbf{\color{primarycolor}Contenu} &
+\textbf{\color{primarycolor}Rétention} &
+\textbf{\color{primarycolor}Partitions} \\
+\midrule
+\texttt{clics\_ecommerce} & Événements bruts (humains + bots) & 7 jours & 3 \\
+\addlinespace[0.1cm]
+\texttt{clics\_filtres} & Événements nettoyés (humains seulement) & 3 jours & 3 \\
+\addlinespace[0.1cm]
+\texttt{stats\_produits} & Statistiques agrégées par fenêtre & 1 jour & 1 \\
+\addlinespace[0.1cm]
+\texttt{alertes\_marketing} & Alertes d'abandon de panier & 7 jours & 1 \\
+\bottomrule
+\end{tabularx}
+\caption{Configuration des topics Kafka}
+\end{table}

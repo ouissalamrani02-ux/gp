@@ -2,17 +2,89 @@
 
 \section{Contexte et Objectifs}
 
-Le présent projet s'inscrit dans le cadre du module de Gestion de Projets Informatiques et vise à concevoir une architecture de traitement événementiel unifié pour une plateforme e-commerce fictive. L'objectif principal est de remplacer l'architecture classique Lambda par une \textbf{architecture Kappa}.
-
-\section{Kappa vs Lambda}
-
-L'architecture Lambda sépare le traitement en deux couches distinctes : une couche batch (historique) et une couche speed (temps réel). Cette séparation engendre une complexité opérationnelle et une duplication du code métier.
-
-L'architecture Kappa, en revanche, repose sur un \textbf{unique flux de traitement continu}. Toutes les données, qu'elles soient en temps réel ou historiques, sont traitées par le même système. La rétention des événements dans un log distribué (comme Apache Kafka) permet de recalculer n'importe quel résultat en rejouant simplement le flux depuis le début (Replay).
+Le présent projet s'inscrit dans le cadre du module de \textbf{Gestion de Projets Informatiques} (Pr. Abakouy --- ENSA Al Hoceima) et vise à concevoir une architecture de traitement événementiel unifié pour une plateforme e-commerce fictive. L'objectif principal est de remplacer l'architecture classique Lambda par une \textbf{architecture Kappa}, proposée par \textbf{Jay Kreps} (co-créateur d'Apache Kafka) en 2014.
 
 \begin{infobox}
     \centering
     \vspace{0.3cm}
-    {\large Le choix de l'architecture \textbf{Kappa} permet de simplifier le système en gardant une seule base de code pour le traitement, garantissant ainsi une parfaite cohérence des résultats.}
+    {\large \textbf{Principe fondamental de Kappa :} Un \textit{unique flux de traitement continu} pour toutes les données, qu'elles soient en temps réel ou historiques.}
     \vspace{0.3cm}
 \end{infobox}
+
+\section{Architecture Lambda vs Kappa}
+
+L'architecture \textbf{Lambda} (2011, Nathan Marz) sépare le traitement en deux couches distinctes : une couche \textit{batch} (retraitement périodique via MapReduce ou Spark) et une couche \textit{speed} (traitement temps réel via Storm ou Flink). Cette séparation engendre une complexité opérationnelle considérable et une duplication du code métier.
+
+L'architecture \textbf{Kappa} (2014, Jay Kreps) repose, en revanche, sur un unique flux de traitement continu. Toutes les données sont traitées par le même système. La rétention des événements dans un log distribué (Apache Kafka) permet de recalculer n'importe quel résultat en rejouant simplement le flux depuis le début (\textit{Replay}).
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{3.5cm} C{3.5cm} C{3.5cm} C{3cm}}
+\toprule
+\textbf{\color{primarycolor}Critère} &
+\textbf{\color{primarycolor}Lambda} &
+\textbf{\color{primarycolor}Kappa} &
+\textbf{\color{primarycolor}Notre choix} \\
+\midrule
+Temps réel & Oui & Oui & \textbf{Kappa} \\
+\addlinespace[0.1cm]
+Simplicité & 2 systèmes & 1 système & \textbf{Kappa} \\
+\addlinespace[0.1cm]
+Cohérence & Merge complexe & Replay natif & \textbf{Kappa} \\
+\addlinespace[0.1cm]
+Replay & Batch séparé & Natif Kafka & \textbf{Kappa} \\
+\addlinespace[0.1cm]
+Coût opérationnel & Élevé & Réduit & \textbf{Kappa} \\
+\bottomrule
+\end{tabularx}
+\caption{Comparaison des architectures Lambda et Kappa}
+\end{table}
+
+\section{Les Trois Piliers de l'Architecture Kappa}
+
+\subsection{Pilier 1 : Le Log d'Événements (Kafka)}
+Tous les événements sont stockés de manière \textbf{immuable} et \textbf{ordonnée} dans Apache Kafka. La \textit{rétention} définit combien de temps les événements sont conservés. Ce log permet le \textit{replay} : relire l'historique depuis n'importe quel point dans le temps.
+
+\subsection{Pilier 2 : Le Traitement de Flux (Topologies)}
+Les événements sont traités \textbf{en continu} par des topologies spécialisées. Chaque topologie a une responsabilité unique (filtrage, agrégation, détection de patterns). Les topologies forment une \textit{chaîne de traitement} (pipeline).
+
+\subsection{Pilier 3 : Le Replay pour la Cohérence}
+Lorsque la logique de traitement change, on déploie une nouvelle version de la topologie. Celle-ci \textit{rejoue} tous les événements depuis le début du log. Le résultat est \textbf{identique} à ce qu'aurait produit un batch layer classique, sans la complexité associée.
+
+\section{Pourquoi Kappa pour le E-commerce ?}
+
+Pour une plateforme e-commerce, les événements comportementaux (clics, paniers, achats) sont \textbf{naturellement des flux}. L'architecture Kappa est parfaitement adaptée car :
+
+\begin{enumerate}
+    \item Les données arrivent \textbf{en continu} (les clients naviguent en permanence) ;
+    \item On a besoin de \textbf{réactivité} (détecter un abandon de panier immédiatement) ;
+    \item On veut pouvoir \textbf{recalculer} les statistiques si la logique métier change.
+\end{enumerate}
+
+\section{Technologies Utilisées}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{3.5cm} X C{2.5cm}}
+\toprule
+\textbf{\color{primarycolor}Technologie} &
+\textbf{\color{primarycolor}Rôle} &
+\textbf{\color{primarycolor}Version} \\
+\midrule
+Apache Kafka & Log d'événements, rétention, distribution & 7.3.0 (Confluent) \\
+\addlinespace[0.1cm]
+Apache Zookeeper & Coordination du cluster Kafka & 7.3.0 (Confluent) \\
+\addlinespace[0.1cm]
+Apache Flink & Moteur de traitement de flux (référence) & 1.17 \\
+\addlinespace[0.1cm]
+Python & Scripts de simulation et topologies & 3.10+ \\
+\addlinespace[0.1cm]
+kafka-python & Client Python pour Kafka & 2.3.x \\
+\addlinespace[0.1cm]
+Docker & Conteneurisation de l'infrastructure & 29.x \\
+\addlinespace[0.1cm]
+Docker Compose & Orchestration des services & 5.x \\
+\bottomrule
+\end{tabularx}
+\caption{Stack technologique du projet}
+\end{table}
