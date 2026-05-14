@@ -1,0 +1,18 @@
+\chapter{Introduction : Architecture Kappa}
+
+\section{Contexte et Objectifs}
+
+Le présent projet s'inscrit dans le cadre du module de Gestion de Projets Informatiques et vise à concevoir une architecture de traitement événementiel unifié pour une plateforme e-commerce fictive. L'objectif principal est de remplacer l'architecture classique Lambda par une \textbf{architecture Kappa}.
+
+\section{Kappa vs Lambda}
+
+L'architecture Lambda sépare le traitement en deux couches distinctes : une couche batch (historique) et une couche speed (temps réel). Cette séparation engendre une complexité opérationnelle et une duplication du code métier.
+
+L'architecture Kappa, en revanche, repose sur un \textbf{unique flux de traitement continu}. Toutes les données, qu'elles soient en temps réel ou historiques, sont traitées par le même système. La rétention des événements dans un log distribué (comme Apache Kafka) permet de recalculer n'importe quel résultat en rejouant simplement le flux depuis le début (Replay).
+
+\begin{infobox}
+    \centering
+    \vspace{0.3cm}
+    {\large Le choix de l'architecture \textbf{Kappa} permet de simplifier le système en gardant une seule base de code pour le traitement, garantissant ainsi une parfaite cohérence des résultats.}
+    \vspace{0.3cm}
+\end{infobox}

@@ -1,0 +1,24 @@
+\chapter{Planification et Estimation}
+
+\section{Découpage du Projet et Sprints}
+
+Nous avons utilisé une méthode itérative pour planifier le projet, en le découpant en trois Sprints principaux :
+\begin{enumerate}
+    \item \textbf{Sprint 1 :} Mise en place de l'infrastructure Docker (Zookeeper, Kafka, Flink).
+    \item \textbf{Sprint 2 :} Développement du simulateur Python et des topologies de traitement (Filtrage, Agrégation, Détection d'abandon).
+    \item \textbf{Sprint 3 :} Validation de la cohérence via le mécanisme de Replay et rédaction de la documentation.
+\end{enumerate}
+
+\section{Le Diagramme de Gantt}
+
+Le suivi temporel a été modélisé à l'aide de GanttProject. Cet outil nous a permis d'ordonnancer les tâches et d'identifier le chemin critique du projet.
+
+\begin{borderedfigure}
+    \centering
+    \includegraphics[width=\textwidth]{../screenshots/Gantt.png}
+    \captionof{figure}{Diagramme de Gantt du projet}
+\end{borderedfigure}
+
+\section{Estimation des Charges (Planning Poker)}
+
+Pour éviter de sous-estimer le temps de développement, risque fréquent identifié dans le Chapitre 8 du cours, nous avons utilisé la méthode du \textbf{Planning Poker}. Cette approche collaborative a permis d'estimer les User Stories de manière consensuelle, tenant compte de l'incertitude liée à l'utilisation de nouvelles technologies comme Apache Kafka.

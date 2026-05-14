@@ -1,4 +1,35 @@
+## =============================================================================
+##  DOCKER COMPOSE — Architecture Kappa E-commerce
+## =============================================================================
+##  Ce fichier définit l'infrastructure complète de l'architecture Kappa.
+##
+##  Services déployés :
+##    1. Zookeeper  : Coordination du cluster Kafka
+##    2. Kafka      : Broker de messages (le log d'événements)
+##    3. JobManager : Apache Flink — gestionnaire de jobs
+##    4. TaskManager: Apache Flink — exécuteur de tâches
+##
+##  L'architecture Kappa repose sur un UNIQUE flux de traitement :
+##    Simulateur → Kafka → Topologies de traitement → Résultats
+##
+##  Commandes :
+##    Démarrer  : docker-compose up -d
+##    Arrêter   : docker-compose down
+##    Statut    : docker-compose ps
+##    Logs      : docker-compose logs -f
+##
+##  Auteur : Équipe Projet Kappa — ENSA Al Hoceima
+## =============================================================================
+
 services:
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # ZOOKEEPER — Coordinateur du cluster Kafka
+  # ──────────────────────────────────────────────────────────────────────────
+  # Zookeeper gère la coordination entre les brokers Kafka :
+  #   - Élection du leader des partitions
+  #   - Suivi des brokers actifs
+  #   - Stockage de la configuration
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
     environment:
@@ -7,6 +38,16 @@ services:
     ports:
       - 22181:2181
 
+  # ──────────────────────────────────────────────────────────────────────────
+  # KAFKA — Le cœur de l'architecture Kappa
+  # ──────────────────────────────────────────────────────────────────────────
+  # Kafka est le LOG D'ÉVÉNEMENTS central :
+  #   - Reçoit tous les événements e-commerce (producteur)
+  #   - Les stocke de manière immuable et ordonnée
+  #   - Permet le REPLAY (relire depuis le début)
+  #   - Distribue les événements aux topologies de traitement
+  #
+  # La RÉTENTION est configurée par topic (voir config/setup_topics.sh)
   kafka:
     image: confluentinc/cp-kafka:7.3.0
     depends_on:
@@ -20,7 +61,18 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      # Rétention par défaut : 7 jours (peut être override par topic)
+      KAFKA_LOG_RETENTION_HOURS: 168
+      KAFKA_LOG_RETENTION_CHECK_INTERVAL_MS: 300000
 
+  # ──────────────────────────────────────────────────────────────────────────
+  # FLINK JOB MANAGER — Gestionnaire de jobs de traitement
+  # ──────────────────────────────────────────────────────────────────────────
+  # Dans une architecture Kappa complète, Apache Flink exécuterait
+  # les topologies de traitement (filtrage, agrégation, détection).
+  # Le JobManager coordonne les TaskManagers.
+  #
+  # Interface web : http://localhost:8081
   jobmanager:
     image: flink:1.17
     ports:
@@ -29,6 +81,15 @@ services:
     environment:
       FLINK_PROPERTIES: "jobmanager.rpc.address: jobmanager"
 
+  # ──────────────────────────────────────────────────────────────────────────
+  # FLINK TASK MANAGER — Exécuteur de tâches de traitement
+  # ──────────────────────────────────────────────────────────────────────────
+  # Le TaskManager exécute les opérations de traitement de flux :
+  #   - Filtrage des bots
+  #   - Agrégation par fenêtre temporelle
+  #   - Détection de patterns (abandon de panier)
+  #
+  # 2 task slots = 2 topologies en parallèle
   taskmanager:
     image: flink:1.17
     depends_on:

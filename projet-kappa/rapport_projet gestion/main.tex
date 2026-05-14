@@ -14,16 +14,16 @@
 \newcommand{\docKingdom}{ROYAUME DU MAROC}
 \newcommand{\docUniversity}{Université Abdelmalek Essaâdi}
 \newcommand{\docSchool}{École Nationale des Sciences Appliquées d'Al Hoceima}
-\newcommand{\docTitle}{TITRE DU DOCUMENT}
-\newcommand{\docSubtitle}{Sous-titre du projet}
-\newcommand{\docModule}{Nom du Module}
-\newcommand{\docAuthor}{Yazid TAHIRI ALAOUI}
+\newcommand{\docTitle}{Implémentation d'une architecture Kappa}
+\newcommand{\docSubtitle}{Traitement événementiel unifié pour le e-commerce}
+\newcommand{\docModule}{Gestion de Projets Informatiques}
+\newcommand{\docAuthor}{Yazid TAHIRI ALAOUI, Souhayla ECH-CHARAY et Ouissal EL AMRANI}
 \newcommand{\docProgram}{1\`{e}re année -- Ingénierie Données (ID1)}
-\newcommand{\docSupervisor}{Pr. Nom PRÉNOM}
+\newcommand{\docSupervisor}{Pr. Redouan ABAKOUY}
 \newcommand{\docYear}{2025 -- 2026}
 
 % ── Headers (uses commands from the .sty) ───────────────────────────────────
-\renewcommand{\headerLeft}{Titre du Document}
+\renewcommand{\headerLeft}{Projet Architecture Kappa}
 \renewcommand{\headerRight}{ENSAH -- Année 2025/2026}
 
 % ── PDF metadata ────────────────────────────────────────────────────────────
@@ -63,16 +63,21 @@
 \setcounter{chapter}{0}
 
 % ── Include your chapters here ─────────────────────────────────────────────
-% Duplicate chapters/chapter-template.tex for each chapter, then include:
-\input{chapters/chapter-template}
-% \input{chapters/chapter-02}
-% \input{chapters/chapter-03}
+\input{chapters/chapter-01-introduction}
+\input{chapters/chapter-02-acteurs}
+\input{chapters/chapter-03-planification}
+\input{chapters/chapter-04-implementation}
+\input{chapters/chapter-05-methodologie}
+\input{chapters/chapter-06-risques}
 
 % ── Conclusion ─────────────────────────────────────────────────────────────
-\chapter*{Conclusion}
-\addcontentsline{toc}{chapter}{Conclusion}
+\chapter*{Conclusion et Perspectives}
+\addcontentsline{toc}{chapter}{Conclusion et Perspectives}
 
-% Write your conclusion here...
+Le projet a réussi à unifier le traitement événementiel grâce à l'architecture Kappa. Le site e-commerce fictif est désormais capable de traiter et d'analyser le comportement client en temps réel sans latence et avec une parfaite cohérence grâce au mécanisme de rétention et de replay.
+
+\textbf{Perspectives :}
+La prochaine étape serait d'intégrer du \textbf{Machine Learning en temps réel} sur ce flux Kappa. Par exemple : prédire l'achat suivant d'un client pendant qu'il navigue encore sur la page d'accueil ou utiliser l'IA pour ajuster les prix dynamiquement.
 
 \vspace{2cm}
 \begin{flushright}

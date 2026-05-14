@@ -1,0 +1,33 @@
+\chapter{Gestion des Risques}
+
+\section{Identification et Prévention}
+
+La gestion des risques est une composante essentielle de la gestion de projet. Nous avons anticipé plusieurs risques :
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{L{4cm} C{2cm} C{2cm} X}
+\toprule
+\textbf{\color{primarycolor}Risque} &
+\textbf{\color{primarycolor}Probabilité} &
+\textbf{\color{primarycolor}Impact} &
+\textbf{\color{primarycolor}Action Préventive} \\
+\midrule
+Perte de données (Kafka tombe) & Moyenne & Élevé & Configuration de la rétention et mécanisme de Haute Disponibilité (réplication). \\
+\addlinespace[0.15cm]
+Retard de livraison & Élevée & Élevé & Utilisation du Planning Poker pour des estimations réalistes. \\
+\addlinespace[0.15cm]
+Incohérence des résultats & Faible & Élevé & Mise en place du test de validation de cohérence (Replay vs Temps réel). \\
+\bottomrule
+\end{tabularx}
+\caption{Matrice des risques et actions préventives}
+\end{table}
+
+\section{Le Cône d'Incertitude}
+
+Au début du projet, l'incertitude liée à la technologie Kafka était très forte. Au fur et à mesure des Sprints, la maîtrise technique s'est améliorée et l'incertitude s'est réduite, permettant des estimations plus précises pour les tâches restantes.
+
+\begin{warningbox}
+    \textbf{\textcolor{red!70!black}{\large Risque Technique}}\\[0.3cm]
+    Les technologies Big Data/Streaming sont complexes à configurer. L'utilisation de \texttt{docker-compose} a permis d'encapsuler cette complexité et d'atténuer le risque de problèmes d'environnement.
+\end{warningbox}
